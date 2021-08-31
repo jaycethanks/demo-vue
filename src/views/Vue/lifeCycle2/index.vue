@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style scoped>
-@import url("../../Antd/antd.css");
+/* @import url("../../Antd/antd.css"); */
 
 .title {
   font-family: "Courier New", Courier, monospace;

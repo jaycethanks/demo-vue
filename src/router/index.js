@@ -1,8 +1,10 @@
 //router.js
 import VueRouter from "vue-router";
+import Vue from "vue";
+
 //导入生成好的规则
 import routerRoutes from "./routes.js";
-console.log(routerRoutes, "--line5");
+console.log(routerRoutes, '--line7');
 Vue.use(VueRouter);
 const router = new VueRouter({
   mode: "history",

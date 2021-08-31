@@ -1,52 +1,67 @@
 //routes.js
 //递归获取 views 文件夹下的所有.vue文件
 const files = require.context("@/views", true, /\.vue$/);
-let pages = [];
 let initArr = [];
-let initArrNoComps = [];
+let levelI = [];
+let levelII = [];
+
+
 files.keys().forEach((key) => {
-  // 首次处理，生成所有vue文件数组
+  // 首次处理，生成所有vue文件名数组
   let initFilter = key.replace(/(\.\/|\.vue)/g, "").replace(" ", "");
   let path = files(key).default.__file;
   initArr.push({ name: initFilter, path: path });
 });
-initArr.forEach((item) => {
-  if (item.name.includes("comps")) {
-    initArrNoComps.push({ name: item.name, path: item.path });
-  }
-});
-initArr.forEach((item, index) => {
-  // 二次处理，过滤出二级tree结构
-  if (item.name.includes("comps")) {
-    let temp = item.name.split("/comps");
-    try {
-      let child = [];
-      initArrNoComps.forEach((item) => {
-        if (item.name.includes(temp[0])) {
-          child.push({ name: temp[1], path: item.path });
-        }
-      });
-      pages.push({ main: { name: temp[0], path: item.path }, child: child });
-    } catch (err) {
-      console.error("文件目录不规范,请检查文件目录结构,具体错误如下：");
-      console.error(err);
+
+
+levelist();
+function levelist() {
+  // 分离出一级和二级目录
+  initArr.forEach(item => {
+    let I = item.name.split("/")[0];
+    let II = item.name.split("/")[1];
+    let path = item.path;
+    if (path.includes(I + '/index.vue')) {
+      levelI.push({ name: I, path: path, child: [] })
     }
-  } else {
-    pages.push({ main: item, child: [] });
-  }
-});
-console.log(pages, "--line38");
+    if (path.includes(II + '/index.vue')) {
+      levelII.push({ name: II, path: path })
+    }
+  })
+
+}
+
+// 合并levelII --> levelI
+levelII.forEach(item => {
+  levelI.forEach(it => {
+    if (item.path.includes(it.path.replace("index.vue", ''))) {
+      console.log(`..${item.path.replace("src", '')}--line38`);
+      it.child.push(
+        {
+          path: '/' + it.name + '/' + item.name,
+          name: item.name,
+          component: resolve => require([`..${item.path.replace("src", '')}`], resolve),
+          // component: () => import(`..${item.path.replace("src", '')}`),
+
+        })
+    }
+  })
+})
+
+
 //生成路由规则
 let generator = [];
-pages.forEach((item) => {
-  let path = main;
-  let name = main.split("/")[main.split("/").length - 1];
+levelI.forEach((item) => {
   generator.push({
-    path,
-    name,
-    component: pages[item],
+    path: '/' + item.name,
+    name: item.name,
+    // component: () => import(`..${item.path.replace("src", '')}`),
+    component: resolve => require([`..${item.path.replace("src", '')}`], resolve),
+
+    children: item.child
   });
 });
+console.log(generator, '--line59');
 //合并公共路由以及重定向规则
 const routes = [
   {
@@ -56,7 +71,7 @@ const routes = [
   ...generator,
   {
     path: "*",
-    component: () => import("@/views/Common/404.vue"),
+    component: () => import("@/components/Common/404.vue"),
   },
 ];
 
