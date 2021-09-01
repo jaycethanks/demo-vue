@@ -5,7 +5,7 @@
       <details>
         <summary @click="initMenu" style="cursor:default">展开路由目录</summary>
         <div class="bd flex flex-column ">
-          <router-link v-for="(item,index) in routes" :key="index" :to="item.path">{{index}}. {{item.name}}</router-link>
+          <router-link v-for="(item, index) in routes" :key="index" :to="item.path">{{ index }}. {{ item.name }}</router-link>
         </div>
       </details>
     </div>
@@ -14,7 +14,7 @@
 <script>
 import VueResizable from "vue-resizable";
 
-import UTILS from "@/utils/common.js"
+import UTILS from "@/utils/common.js";
 
 export default {
   components: { VueResizable },
@@ -23,24 +23,19 @@ export default {
       handlers: [],
       dragSelector: ".drag-container-1, .drag-container-2",
       routes: [],
-
-    }
+    };
   },
   created() {
     this.initMenu();
-
   },
   methods: {
     initMenu() {
-      this.routes = UTILS.init(this.$router)
-    }
+      this.routes = UTILS.init(this.$router);
+    },
   },
-
-
-}
+};
 </script>
 <style lang="css">
-
 .drag-container-1,
 .drag-container-2 {
   width: 200px;
@@ -50,16 +45,16 @@ export default {
   text-align: center;
   cursor: pointer;
 }
-.block{
-      position: absolute;
-    top: 50px;
-    right: 0px;
+.block {
+  position: absolute;
+  top: 50px;
+  right: 0px;
 }
 
 .drag-area {
   position: absolute;
   width: 100%;
-  height: 1px!important;
+  height: 1px !important;
   z-index: 999;
 }
 details {

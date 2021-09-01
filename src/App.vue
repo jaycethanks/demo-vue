@@ -18,18 +18,20 @@
 
 
 export default {
-  data(){
+  data() {
     return {
-      routes:[]
-      }
+      routes: []
+    }
   },
-  created(){
+  created() {
     this.$router.options.routes.forEach(element => {
       let temp = {
-        path:element.path,
-        name:element.name
+        path: element.path,
+        name: element.name
       };
-      this.routes.push(temp);
+      if (temp.path != "/" && temp.path != "*") {
+        this.routes.push(temp);
+      }
     });
   }
 }
@@ -46,7 +48,7 @@ export default {
 
 #nav {
   padding: 10px;
-  border-bottom:1px solid rgb(197, 197, 197);
+  border-bottom: 1px solid rgb(197, 197, 197);
   margin-bottom: 20px;
 
   a {
@@ -68,23 +70,21 @@ export default {
   color: #cc163a;
   text-decoration: none;
   display: inline-block;
-  
 }
 
-.flex{
+.flex {
   display: flex;
 }
-.justify-center{
+.justify-center {
   justify-content: center;
 }
-.align-center{
-  align-items:center
+.align-center {
+  align-items: center;
 }
-.flex-column{
+.flex-column {
   flex-direction: column;
 }
-.flex-row{
+.flex-row {
   flex-direction: row;
 }
-
 </style>
