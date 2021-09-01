@@ -29,7 +29,7 @@ export default {
         path: element.path,
         name: element.name
       };
-      if (temp.path != "/" && temp.path != "*") {
+      if (temp.path != "/" && temp.path != "*" && temp.path != "/Common/Index") {
         this.routes.push(temp);
       }
     });

@@ -32,7 +32,7 @@ function levelist() {
 levelII.forEach((item) => {
   levelI.forEach((it) => {
     if (item.path.includes(it.path.replace("index.vue", ""))) {
-      console.log(`${item.path}--line38`);
+      // console.log(`${item.path}--line38`);
 
       it.child.push({
         path: "/" + it.name + "/" + item.name,
@@ -70,12 +70,15 @@ levelI.forEach((item) => {
     children: item.child,
   });
 });
-console.log(generator, "--line59");
 //合并公共路由以及重定向规则
 const routes = [
   {
     path: "/",
     redirect: "/Common/Index",
+  },
+  {
+    path: "/Common/Index",
+    component: () => import("@/components/Common/index.vue"),
   },
   ...generator,
   {
