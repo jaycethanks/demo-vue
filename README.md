@@ -22,8 +22,6 @@ npm run build
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-
-
 [toc]
 
 # 重要说明
@@ -126,7 +124,7 @@ jayce@jayce123:views$ tree
 
 `<common-menu />`
 
-你仅需要在一级目录所在目录下的index.vue 中标记该组件即可。 
+你仅需要在一级目录所在目录下的 index.vue 中标记该组件即可。
 
 就像这样：
 
@@ -149,11 +147,9 @@ export default {};
 
 ![image-20210901120505041](README.assets/image-20210901120505041.png)
 
-
-
 ## 示例：添加你自己的实验：
 
-- step1: 在 src\views 下新建**一个含有index.vue文件的文件夹**， 该**文件夹将会成为一个一级目录**，也将被视作一个导航，像这样：
+- step1: 在 src\views 下新建**一个含有 index.vue 文件的文件夹**， 该**文件夹将会成为一个一级目录**，也将被视作一个导航，像这样：
 
 ```bash
 jayce@jayce123:views$ pwd
@@ -177,7 +173,7 @@ index.vue 内容：
 
 如果你的实验只需要一个一级目录就够了，这样就可以了。 如果你希望有一个二级菜单。你还需要继续以下步骤：
 
-- step2: 在 src\views\Test002 路径下，新建N个目录，**每个目录中需含有一个index.vue 文件**。 注意**目录名，即是二级路由的路径名**，且二级菜单的路由名也是这个文件夹的名字。 所以需要注意一下命名规范。 
+- step2: 在 src\views\Test002 路径下，新建 N 个目录，**每个目录中需含有一个 index.vue 文件**。 注意**目录名，即是二级路由的路径名**，且二级菜单的路由名也是这个文件夹的名字。 所以需要注意一下命名规范。
 
   ```bash
   jayce@jayce123:Test002$ tree
@@ -193,7 +189,7 @@ index.vue 内容：
   └── index.vue
   ```
 
-- step3 : 在  src\views\Test002\index.vue 中**引入 `<common-menu /> `和 `<router-view>` 即可**
+- step3 : 在 src\views\Test002\index.vue 中**引入 `<common-menu />`和 `<router-view>` 即可**
 
   ```javascript
   <template>
@@ -202,10 +198,14 @@ index.vue 内容：
       <h1>hello test 002</h1>
       <router-view></router-view>
     </div>
-  
   </template>
   ```
 
 ![image-20210901131151103](README.assets/image-20210901131151103.png)
 
 ![image-20210901131138631](README.assets/image-20210901131138631.png)
+
+你需要额外注意的是：
+
+- 尽量让一级二级目录命名完全不同，否则可能会出现奇怪的问题。
+- 如果遇到问题，可以尝试重新启动项目

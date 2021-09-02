@@ -1,11 +1,3 @@
-<!--
- * @Author: jayce
- * @Date: 2021-05-25 16:17:14
- * @LastEditTime: 2021-07-14 14:33:44
- * @Description: 
- * @FilePath: \demo-vue\src\App.vue
- *  
--->
 <template>
   <div id="app">
     <div id="nav">
@@ -49,7 +41,7 @@ export default {
 #nav {
   padding: 10px;
   border-bottom: 1px solid rgb(197, 197, 197);
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 
   a {
     font-weight: bold;

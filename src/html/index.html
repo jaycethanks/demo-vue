@@ -1,20 +1,18 @@
-<!--
- * @Author: jayce
- * @Date: 2021-07-15 13:23:26
- * @LastEditTime: 2021-07-15 13:24:36
- * @Description: 
- * @FilePath: \demo-vue\src\html\index.html
- *  
--->
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="./demo.js"></script>
+    <title>Simple Map</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script src="./index.js"></script>
   </head>
-
-  <body></body>
+  <body>
+    <div id="map"></div>
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBD8DB4sY3_BCp0Eivuc6_MavQrw4Bb3mU&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+    <!-- AIzaSyBD8DB4sY3_BCp0Eivuc6_MavQrw4Bb3mU&libraries=places&language=en-us -->
+  </body>
 </html>
