@@ -31,6 +31,7 @@ export default {
       this.mapInstance = new google.maps.Map(document.getElementById("map"), { ...options });
       this.marker(this.mapInstance, { lat: -25.344, lng: 131.036 });//add a single marker demo
       this.markers(this.mapInstance);//add cluster markers demo
+      console.log(region, '--line35');
     },
     marker(mapInstance, position) {
       //add a single marker

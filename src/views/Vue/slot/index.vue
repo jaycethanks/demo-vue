@@ -1,12 +1,12 @@
 <template>
   <Eassy title="this is a title">
-    <template v-slot:header="headerSlotField">
-      title is :{{headerSlotField.anyname}}
+    <template #header="{ anyName }">
+      {{ anyName.default1 }}
     </template>
-    <template v-slot:main>
+    <template #main>
       eassy main part: balabala....main...main.....
     </template>
-    <template v-slot:footer>
+    <template #footer>
       eassy footer part: bala...foooooooter....
     </template>
   </Eassy>
@@ -16,6 +16,11 @@ import Eassy from "./comps/Eassy.vue";
 export default {
   components: {
     Eassy,
+  },
+  data() {
+    return {
+      hello: "this is hello"
+    }
   }
 };
 </script>

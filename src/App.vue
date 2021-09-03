@@ -12,7 +12,8 @@
 export default {
   data() {
     return {
-      routes: []
+      routes: [],
+      hello: '123'
     }
   },
   created() {

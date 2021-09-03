@@ -8,5 +8,11 @@
   </div>
 </template>
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      hello: "this is hello"
+    }
+  }
+};
 </script>

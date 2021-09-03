@@ -2,7 +2,7 @@
   <section class="eassy-container">
     <header class="eassy-header">
       <h1>
-        <slot name="header" v-bind:anyname="title"></slot>
+        <slot name="header" :anyName="obj">{{obj.default1}}</slot>
       </h1>
     </header>
     <main class="eassy-main">
@@ -15,7 +15,17 @@
 </template>
 <script>
 export default {
-  props: ['title'],
+  data() {
+    return {
+      obj: {
+        default1: "This is default title1",
+        default2: "This is default title2"
+      }
+    }
+  },
+  created() {
+    console.log(this.$root.hello, '--line27');
+  }
 }
 </script>
 
