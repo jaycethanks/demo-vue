@@ -124,7 +124,7 @@ jayce@jayce123:views$ tree
 
 `<common-menu />`
 
-你仅需要在一级目录所在目录下的 index.vue 中标记该组件即可。
+你仅需要在一级目录所在目录下的 index.vue 中标记该组件和一个`<router-view>`即可。
 
 就像这样：
 
