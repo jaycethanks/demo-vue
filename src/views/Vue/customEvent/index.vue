@@ -1,16 +1,16 @@
 <template>
-  <Child @customEvent="customEventHandler"/>
+  <Child @customEvent="customEventHandler" />
 </template>
 <script>
-import Child from './comps/child.vue'
+import Child from "./comps/child.vue";
 export default {
-  components:{
-    Child
+  components: {
+    Child,
   },
-  methods:{
-    customEventHandler(){
-      console.log("custom event handler trigger!!",'--line12');
-    }
-  }
-}
+  methods: {
+    customEventHandler() {
+      console.log("custom event handler trigger!!", "--line12");
+    },
+  },
+};
 </script>
