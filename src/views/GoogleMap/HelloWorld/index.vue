@@ -5,20 +5,20 @@
   </div>
 </template>
 <script>
-import { Loader } from "@googlemaps/js-api-loader"
-import MarkerClusterer from '@googlemaps/markerclustererplus';//cluster markers
+import { Loader } from "@googlemaps/js-api-loader";
+import MarkerClusterer from "@googlemaps/markerclustererplus"; //cluster markers
 export default {
   data() {
     return {
-      mapInstance: null
-    }
+      mapInstance: null,
+    };
   },
   created() {
     const options = {
       // There are two required options for every map: center and zoom.
       center: { lat: -25.344, lng: 131.036 },
       zoom: 10,
-    }
+    };
     this.entry(options);
   },
   methods: {
@@ -28,10 +28,12 @@ export default {
         // version: "weekly"
       });
       await loader.load();
-      this.mapInstance = new google.maps.Map(document.getElementById("map"), { ...options });
-      this.marker(this.mapInstance, { lat: -25.344, lng: 131.036 });//add a single marker demo
-      this.markers(this.mapInstance);//add cluster markers demo
-      console.log(region, '--line35');
+      this.mapInstance = new google.maps.Map(document.getElementById("map"), {
+        ...options,
+      });
+      this.marker(this.mapInstance, { lat: -25.344, lng: 131.036 }); //add a single marker demo
+      this.markers(this.mapInstance); //add cluster markers demo
+      console.log(region, "--line35");
     },
     marker(mapInstance, position) {
       //add a single marker
@@ -96,24 +98,24 @@ export default {
             };
 
             this.mapInstance.setCenter(pos);
-            this.marker(this.mapInstance, pos)
+            this.marker(this.mapInstance, pos);
           },
           () => {
             handleLocationError();
-          }
+          },
         );
       } else {
         // Browser doesn't support Geolocation
         handleLocationError();
-      };
-      function handleLocationError() {
-        alert("locate failed")
       }
-    }
-  }
-}
+      function handleLocationError() {
+        alert("locate failed");
+      }
+    },
+  },
+};
 </script>
-<style>
+<style scoped>
 #map {
   height: calc(100vh - 44px);
 }

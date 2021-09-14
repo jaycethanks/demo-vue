@@ -12,12 +12,14 @@ import router from "./router";
 import store from "./store";
 import "@/utils";
 import "normalize.css/normalize.css";
+import Axios from "axios";
 
 import Antd, { version } from "ant-design-vue";
 import "ant-design-vue/dist/antd.css"; // or 'ant-design-vue/dist/antd.less'
 
 // import 'ant-design-vue/dist/antd.css'; // or 'ant-design-vue/dist/antd.less'
 
+Vue.prototype.$axios = Axios;
 Vue.use(Antd);
 Vue.config.productionTip = false;
 
