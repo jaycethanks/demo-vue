@@ -24,7 +24,7 @@ export default {
   methods: {
     async entry(options) {
       const loader = new Loader({
-        apiKey: "AIzaSyC8fbkjXigTfmPHLjKMAEJq2tnkq7L0Wxc",
+        apiKey: "YOUR-GOOGLE-MAP-API-KEY",
         // version: "weekly"
       });
       await loader.load();

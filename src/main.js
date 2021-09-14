@@ -28,6 +28,11 @@ Vue.config.productionTip = false;
 // Vue.use(KFormDesign);
 
 new Vue({
+  data() {
+    return {
+      name: "$root",
+    };
+  },
   router,
   store,
   render: (h) => h(App),

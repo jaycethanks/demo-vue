@@ -1,33 +1,41 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link v-for="(item,index) in routes" :key="index" class="demo" :to="item.path">{{index}}. {{item.name}}</router-link>
+      <router-link
+        v-for="(item, index) in routes"
+        :key="index"
+        class="demo"
+        :to="item.path"
+        >{{ index }}. {{ item.name }}</router-link
+      >
     </div>
     <router-view />
   </div>
 </template>
 <script>
-
-
 export default {
   data() {
     return {
       routes: [],
-      hello: '123'
-    }
+      hello: "123",
+    };
   },
   created() {
-    this.$router.options.routes.forEach(element => {
+    this.$router.options.routes.forEach((element) => {
       let temp = {
         path: element.path,
-        name: element.name
+        name: element.name,
       };
-      if (temp.path != "/" && temp.path != "*" && temp.path != "/Common/Index") {
+      if (
+        temp.path != "/" &&
+        temp.path != "*" &&
+        temp.path != "/Common/Index"
+      ) {
         this.routes.push(temp);
       }
     });
-  }
-}
+  },
+};
 </script>
 
 <style lang="scss">
