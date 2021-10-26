@@ -23,9 +23,9 @@ import region from "../mock/region";
 export default {
   data() {
     return {
-      expandedKeys: ["0-0-0", "0-0-1"],
+      expandedKeys: [],
       autoExpandParent: true,
-      checkedKeys: ["0-0-0"],
+      checkedKeys: [],
       selectedKeys: [],
       treeData: region.Region.childRegions,
       replaceFields: {
