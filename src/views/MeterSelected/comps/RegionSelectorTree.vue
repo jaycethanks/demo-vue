@@ -52,7 +52,7 @@ export default {
           this.table.selectedRowKeys = selectedRowKeys;
         },
         onSelect: (record, selected, selectedRows) => {
-          this.$emit("onSelect", record, selectedRows);
+          this.$emit("onSelect", record, selected, selectedRows);
         },
         onSelectAll: (selected, selectedRows, changeRows) => {
           this.$emit("onSelectAll", selected, selectedRows);
@@ -81,15 +81,15 @@ export default {
         // 如果有选中的表
         //模拟请求
         this.tree.checkedKeys = checkedKeys;
-        let res = await this.$axios({
-          url:
-            "https://a048a1af-2837-422c-85a5-d516712d3238.mock.pstmn.io/api/meters",
-          method: "post",
-          data: checkedKeys,
-          headers: {
-            "Content-Type": "application/json;charset=UTF-8",
-          },
-        });
+        // let res = await this.$axios({
+        //   url:
+        //     "https://a048a1af-2837-422c-85a5-d516712d3238.mock.pstmn.io/api/meters",
+        //   method: "post",
+        //   data: checkedKeys,
+        //   headers: {
+        //     "Content-Type": "application/json;charset=UTF-8",
+        //   },
+        // });
         // console.log(this.mockRes.meterList, "--line88");
         this.table.data = this.mockRes.meterList;
       }
