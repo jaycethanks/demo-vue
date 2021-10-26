@@ -1,0 +1,194 @@
+<!DOCTYPE >
+<html>
+  <head>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        margin-right: -20px;
+      }
+      div.box1 {
+        width: 620px;
+        height: 75px;
+        background: rgba(16, 64, 124, 0.45);
+        border: 2px solid;
+        border-image: linear-gradient(0deg, #2169b2, #5385bd, #2169b2) 2 2;
+      }
+      div.box2 {
+        background: #ffe7bc;
+        /* position: absolute; */
+        z-index: 2;
+      }
+      div.box3 {
+        background: #6ca700;
+        /* position: absolute; */
+        z-index: 3;
+        float: right;
+      }
+    </style>
+  </head>
+  <body>
+    <div data-v-843a3de0="" class="dv-border-box-12" style="padding: 10px;">
+      <svg width="840" height="448" class="dv-border-svg-container">
+        <defs>
+          <filter
+            id="borderr-box-12-filterId-d0bd4663b59e47e9910d53dcfe2975bb"
+            height="180%"
+            width="150%"
+            x="-25%"
+            y="-25%"
+          >
+            <feMorphology
+              operator="dilate"
+              radius="1"
+              in="SourceAlpha"
+              result="thicken"
+            ></feMorphology>
+            <feGaussianBlur
+              in="thicken"
+              stdDeviation="2"
+              result="blurred"
+            ></feGaussianBlur>
+            <feFlood flood-color="rgba(124,231,253,0.7)" result="glowColor">
+              <animate
+                attributeName="flood-color"
+                values="
+      rgba(124,231,253,0.7);
+      rgba(124,231,253,0.3);
+      rgba(124,231,253,0.7);
+    "
+                dur="3s"
+                begin="0s"
+                repeatCount="indefinite"
+              ></animate>
+            </feFlood>
+            <feComposite
+              in="glowColor"
+              in2="blurred"
+              operator="in"
+              result="softGlowColored"
+            ></feComposite>
+            <feMerge>
+              <feMergeNode in="softGlowColored"></feMergeNode>
+              <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+          </filter>
+        </defs>
+        <path
+          fill="transparent"
+          stroke-width="2"
+          stroke="#2e6099"
+          d="
+M15 5 L 625 5 Q 635 5, 635 15
+L 635 433 Q 635 443, 625 443
+L 15, 443 Q 5 443 5 433 L 5 15
+Q 5 5 15 5
+"
+        ></path>
+        <path
+          stroke-width="2"
+          fill="transparent"
+          stroke-linecap="round"
+          filter="url(#borderr-box-12-filterId-d0bd4663b59e47e9910d53dcfe2975bb)"
+          d="M 20 5 L 15 5 Q 5 5 5 15 L 5 20"
+          stroke="#7ce7fd"
+        ></path>
+        <path
+          stroke-width="2"
+          fill="transparent"
+          stroke-linecap="round"
+          filter="url(#borderr-box-12-filterId-d0bd4663b59e47e9910d53dcfe2975bb)"
+          d="M 620 5 L 625 5 Q 635 5 635 15 L 635 20"
+          stroke="#7ce7fd"
+        ></path>
+        <path
+          stroke-width="2"
+          fill="transparent"
+          stroke-linecap="round"
+          filter="url(#borderr-box-12-filterId-d0bd4663b59e47e9910d53dcfe2975bb)"
+          d="
+M 620 443 L 625 443
+Q 635 443 635 433
+L 635 428
+"
+          stroke="#7ce7fd"
+        ></path>
+        <path
+          stroke-width="2"
+          fill="transparent"
+          stroke-linecap="round"
+          filter="url(#borderr-box-12-filterId-d0bd4663b59e47e9910d53dcfe2975bb)"
+          d="
+M 20 443 L 15 443
+Q 5 443 5 433
+L 5 428
+"
+          stroke="#7ce7fd"
+        ></path>
+      </svg>
+      <div class="border-box-content"></div>
+    </div>
+    <div class="box1">BOX - 1</div>
+
+    <svg style="width:100%;height:100%">
+      <g id="eCS7ZtUrsNH2" transform="matrix(1 0 0 1 0.000001 0.000001)">
+        <path
+          id="eCS7ZtUrsNH3"
+          d="M42.301983,16.352354L14.853388,16.352354L15.4374,43.216936"
+          transform="matrix(1 0 0 1 0.000002 0)"
+          fill="none"
+          stroke="rgb(243,32,201)"
+          stroke-width="1.28"
+        />
+        <path
+          id="eCS7ZtUrsNH4"
+          d="M42.301983,16.352354L14.853388,16.352354L15.4374,43.216936"
+          transform="matrix(1 0 0 -1 0.000002 483.562477)"
+          fill="none"
+          stroke="rgb(243,32,201)"
+          stroke-width="1.28"
+        />
+        <path
+          id="eCS7ZtUrsNH5"
+          d="M42.301983,16.352354L14.853388,16.352354L15.4374,43.216936"
+          transform="matrix(0 -1 -1 0 641.64497 482.647524)"
+          fill="none"
+          stroke="rgb(243,32,201)"
+          stroke-width="1.28"
+        />
+        <path
+          id="eCS7ZtUrsNH6"
+          d=""
+          transform="matrix(1 0 0 -1 -0.146003 483.562478)"
+          fill="none"
+          stroke="rgb(243,32,201)"
+          stroke-width="1.28"
+        />
+        <path
+          id="eCS7ZtUrsNH7"
+          d="M42.301983,16.352354L14.853388,16.352354L15.4374,43.216936"
+          transform="matrix(0 1 -1 0 641.790974 1.498966)"
+          fill="none"
+          stroke="rgb(243,32,201)"
+          stroke-width="1.28"
+        />
+        <path
+          id="eCS7ZtUrsNH8"
+          d=""
+          transform="matrix(1 0 0 1 102.78623 50.225089)"
+          fill="none"
+          stroke="rgb(243,32,201)"
+          stroke-width="1.28"
+        />
+        <path
+          id="eCS7ZtUrsNH9"
+          d=""
+          transform="matrix(1 0 0 1 0.000002 0)"
+          fill="none"
+          stroke="rgb(243,32,201)"
+          stroke-width="1.28"
+        />
+      </g>
+    </svg>
+  </body>
+</html>

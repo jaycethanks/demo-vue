@@ -16,8 +16,11 @@ import Axios from "axios";
 
 import Antd, { version } from "ant-design-vue";
 import "ant-design-vue/dist/antd.css"; // or 'ant-design-vue/dist/antd.less'
-
 // import 'ant-design-vue/dist/antd.css'; // or 'ant-design-vue/dist/antd.less'
+
+import dataV from "@jiaminghi/data-view";
+
+Vue.use(dataV);
 
 Vue.prototype.$axios = Axios;
 Vue.use(Antd);
@@ -26,6 +29,16 @@ Vue.config.productionTip = false;
 // import KFormDesign from "k-form-design";
 // import 'k-form-design/lib/k-form-design.css'
 // Vue.use(KFormDesign);
+
+// ElementUI
+import ElementUI from "element-ui";
+import "element-ui/lib/theme-chalk/index.css";
+Vue.use(ElementUI);
+
+import * as echarts from "echarts";
+import "echarts-gl";
+import "echarts-liquidfill";
+Vue.prototype.$echarts = echarts;
 
 new Vue({
   data() {

@@ -68,31 +68,32 @@ export default {
           key: "regionCode",
         },
       },
-      // checkedKeys: ["0-0-0"],
       mockRes: mockRes,
     };
   },
+  mounted() {
+    console.log(mockRes, "--line75");
+  },
   methods: {
     async onCheckArea(checkedKeys) {
-      this.tree.checkedKeys = checkedKeys;
-      // let res = await this.$axios({
-      //   url: "http://154.72.43.168:23666/api/walkby/getUnTaskMeter.do",
-      //   method: "post",
-      //   data: checkedKeys,
-      //   headers: {
-      //     "Content-Type": "application/json;charset=UTF-8",
-      //   },
-      // });
-      // console.log(res, "--line65");
-      // console.log(this.mockRes.meterList, "--line88");
       this.table.data = []; //init
-      this.table.data = this.mockRes.meterList;
-      this.$emit("onCheckArea", this.table.data);
-    },
-
-    onNodeChange(checkedValues) {
-      console.log("checked = ", checkedValues);
-      console.log("value = ", this.value);
+      if (checkedKeys.length) {
+        // 如果有选中的表
+        //模拟请求
+        this.tree.checkedKeys = checkedKeys;
+        let res = await this.$axios({
+          url:
+            "https://a048a1af-2837-422c-85a5-d516712d3238.mock.pstmn.io/api/meters",
+          method: "post",
+          data: checkedKeys,
+          headers: {
+            "Content-Type": "application/json;charset=UTF-8",
+          },
+        });
+        // console.log(this.mockRes.meterList, "--line88");
+        this.table.data = this.mockRes.meterList;
+      }
+      this.$emit("onCheckArea", this.table.data); //如果没有选中的表，参数为空
     },
   },
 };

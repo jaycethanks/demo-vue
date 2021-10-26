@@ -1,0 +1,64 @@
+$titleHeight: 80px;
+#data-view {
+  width: 100vw;
+  height: 100vh;
+  // min-height: 973px;
+  // min-width: 1920px;
+  // background-color: #030409;
+  // color: #fff;
+  // #dv-full-screen-container {
+  //   background-image: url("../img/8k_stars_milky_way.jpg");
+  //   background-size: 100% 100%;
+  //   box-shadow: 0 0 3px blue;
+  //   display: flex;
+  //   flex-direction: column;
+  // }
+  .top-header {
+    // border: 1px solid red;
+    height: $titleHeight;
+    text-align: center;
+  }
+  .main-content {
+    height: calc(100% - #{$titleHeight});
+    // border: 1px solid peru;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    .left-side-wrapper {
+      // border: 1px solid rgb(0, 140, 255);
+      height: 100%;
+      width: 30vw;
+      .left-side-card {
+        // border: 1px solid salmon;
+        height: 33.333333%;
+        width: 100%;
+      }
+    }
+    .center-wrapper {
+      // border: 1px solid red;
+      height: 100%;
+      width: 40vw;
+      .center-top-card {
+        // border: 1px solid gold;
+        height: 40%;
+        width: 100%;
+      }
+      .center-btm-card {
+        // border: 1px solid hotpink;
+        height: 60%;
+        width: 100%;
+      }
+    }
+    .right-side-wrapper {
+      // border: 1px solid rgb(255, 187, 0);
+      height: 100%;
+      width: 30vw;
+      .right-side-card {
+        // border: 1px solid palegreen;
+        height: 33.333333%;
+        width: 100%;
+      }
+    }
+  }
+}
