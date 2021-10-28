@@ -1,8 +1,6 @@
 <template>
   <div class="component-root-wrapper">
-    <dv-border-box-12 style="padding:10px">
-      <dv-scroll-board :config="config" />
-    </dv-border-box-12>
+    <dv-scroll-board :config="config" />
   </div>
 </template>
 <script>

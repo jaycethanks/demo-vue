@@ -33,11 +33,15 @@ Vue.config.productionTip = false;
 // ElementUI
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
+import chinaGeo from "@/views/Echarts/BigScreen/assets/lib/china.json";
 Vue.use(ElementUI);
 
 import * as echarts from "echarts";
-import "echarts-gl";
+// import "echarts-gl";
 import "echarts-liquidfill";
+import "echarts-gl/src/chart/bar3D";
+// import "echarts-gl/src/component/geo3D";
+echarts.registerMap("chinamap", { geoJSON: chinaGeo });
 Vue.prototype.$echarts = echarts;
 
 new Vue({

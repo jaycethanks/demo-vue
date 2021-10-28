@@ -1,25 +1,23 @@
 <template>
   <div class="component-root-wrapper">
-    <dv-border-box-12 style="padding:10px">
-      <section class="left-one-openaccount-section">
-        <p class="card-label">开户数</p>
-        <div class="value-chart">
-          <div class="value-chart-val">1531241355</div>
-          <div class="value-chart-cht">
-            <OpenAccount style="width:100%;height:100%" />
-          </div>
+    <section class="left-one-openaccount-section">
+      <p class="card-label">开户数</p>
+      <div class="value-chart">
+        <div class="value-chart-val">1531241355</div>
+        <div class="value-chart-cht">
+          <OpenAccount style="width:100%;height:100%" />
         </div>
-      </section>
-      <section class="left-one-closeaccount-section">
-        <p class="card-label">销户数</p>
-        <div class="value-chart">
-          <div class="value-chart-val">5456463</div>
-          <div class="value-chart-cht">
-            <CloseAccount style="width:100%;height:100%" />
-          </div>
+      </div>
+    </section>
+    <section class="left-one-closeaccount-section">
+      <p class="card-label">销户数</p>
+      <div class="value-chart">
+        <div class="value-chart-val">5456463</div>
+        <div class="value-chart-cht">
+          <CloseAccount style="width:100%;height:100%" />
         </div>
-      </section>
-    </dv-border-box-12>
+      </div>
+    </section>
   </div>
 </template>
 <script>
