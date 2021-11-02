@@ -65,218 +65,656 @@ export default {
   },
   methods: {
     drawChart() {
-      var data = [
-        [0, 0, 5],
-        [0, 1, 1],
-        [0, 2, 0],
-        [0, 3, 0],
-        [0, 4, 0],
-        [0, 5, 0],
-        [0, 6, 0],
-        [0, 7, 0],
-        [0, 8, 0],
-        [0, 9, 0],
-        [0, 10, 0],
-        [0, 11, 2],
-        [0, 12, 4],
-        [0, 13, 1],
-        [0, 14, 1],
-        [0, 15, 3],
-        [0, 16, 4],
-        [0, 17, 6],
-        [0, 18, 4],
-        [0, 19, 4],
-        [0, 20, 3],
-        [0, 21, 3],
-        [0, 22, 2],
-        [0, 23, 5],
-        [1, 0, 7],
-        [1, 1, 0],
-        [1, 2, 0],
-        [1, 3, 0],
-        [1, 4, 0],
-        [1, 5, 0],
-        [1, 6, 0],
-        [1, 7, 0],
-        [1, 8, 0],
-        [1, 9, 0],
-        [1, 10, 5],
-        [1, 11, 2],
-        [1, 12, 2],
-        [1, 13, 6],
-        [1, 14, 9],
-        [1, 15, 11],
-        [1, 16, 6],
-        [1, 17, 7],
-        [1, 18, 8],
-        [1, 19, 12],
-        [1, 20, 5],
-        [1, 21, 5],
-        [1, 22, 7],
-        [1, 23, 2],
-        [2, 0, 1],
-        [2, 1, 1],
-        [2, 2, 0],
-        [2, 3, 0],
-        [2, 4, 0],
-        [2, 5, 0],
-        [2, 6, 0],
-        [2, 7, 0],
-        [2, 8, 0],
-        [2, 9, 0],
-        [2, 10, 3],
-        [2, 11, 2],
-        [2, 12, 1],
-        [2, 13, 9],
-        [2, 14, 8],
-        [2, 15, 10],
-        [2, 16, 6],
-        [2, 17, 5],
-        [2, 18, 5],
-        [2, 19, 5],
-        [2, 20, 7],
-        [2, 21, 4],
-        [2, 22, 2],
-        [2, 23, 4],
-        [3, 0, 7],
-        [3, 1, 3],
-        [3, 2, 0],
-        [3, 3, 0],
-        [3, 4, 0],
-        [3, 5, 0],
-        [3, 6, 0],
-        [3, 7, 0],
-        [3, 8, 1],
-        [3, 9, 0],
-        [3, 10, 5],
-        [3, 11, 4],
-        [3, 12, 7],
-        [3, 13, 14],
-        [3, 14, 13],
-        [3, 15, 12],
-        [3, 16, 9],
-        [3, 17, 5],
-        [3, 18, 5],
-        [3, 19, 10],
-        [3, 20, 6],
-        [3, 21, 4],
-        [3, 22, 4],
-        [3, 23, 1],
-        [4, 0, 1],
-        [4, 1, 3],
-        [4, 2, 0],
-        [4, 3, 0],
-        [4, 4, 0],
-        [4, 5, 1],
-        [4, 6, 0],
-        [4, 7, 0],
-        [4, 8, 0],
-        [4, 9, 2],
-        [4, 10, 4],
-        [4, 11, 4],
-        [4, 12, 2],
-        [4, 13, 4],
-        [4, 14, 4],
-        [4, 15, 14],
-        [4, 16, 12],
-        [4, 17, 1],
-        [4, 18, 8],
-        [4, 19, 5],
-        [4, 20, 3],
-        [4, 21, 7],
-        [4, 22, 3],
-        [4, 23, 0],
-        [5, 0, 2],
-        [5, 1, 1],
-        [5, 2, 0],
-        [5, 3, 3],
-        [5, 4, 0],
-        [5, 5, 0],
-        [5, 6, 0],
-        [5, 7, 0],
-        [5, 8, 2],
-        [5, 9, 0],
-        [5, 10, 4],
-        [5, 11, 1],
-        [5, 12, 5],
-        [5, 13, 10],
-        [5, 14, 5],
-        [5, 15, 7],
-        [5, 16, 11],
-        [5, 17, 6],
-        [5, 18, 0],
-        [5, 19, 5],
-        [5, 20, 3],
-        [5, 21, 4],
-        [5, 22, 2],
-        [5, 23, 0],
-        [6, 0, 1],
-        [6, 1, 0],
-        [6, 2, 0],
-        [6, 3, 0],
-        [6, 4, 0],
-        [6, 5, 0],
-        [6, 6, 0],
-        [6, 7, 0],
-        [6, 8, 0],
-        [6, 9, 0],
-        [6, 10, 1],
-        [6, 11, 0],
-        [6, 12, 2],
-        [6, 13, 1],
-        [6, 14, 3],
-        [6, 15, 4],
-        [6, 16, 0],
-        [6, 17, 0],
-        [6, 18, 0],
-        [6, 19, 0],
-        [6, 20, 1],
-        [6, 21, 2],
-        [6, 22, 2],
-        [6, 23, 6],
+      let normalItemStyle = {
+        normal: {
+          borderColor: "rgba(145, 234, 248, 0.27)",
+          borderWidth: 1,
+          areaColor: {
+            type: "radial",
+            x: 0.5,
+            y: 0.5,
+            r: 0.8,
+            colorStops: [
+              {
+                offset: 0,
+                color: "rgba(147, 235, 248, 0)", // 0% 处的颜色
+              },
+              {
+                offset: 1,
+                color: "rgba(145, 234, 248, 0.13)", // 100% 处的颜色
+              },
+            ],
+            globalCoord: false, // 缺省为 false
+          },
+          shadowColor: "rgba(129, 219, 248, 0.58)",
+          shadowOffsetX: -2,
+          shadowOffsetY: 2,
+          shadowBlur: 10,
+        },
+        emphasis: {
+          borderColor: "rgba(145, 234, 248, 0.56)",
+          borderWidth: 1,
+          areaColor: {
+            type: "radial",
+            x: 0.5,
+            y: 0.5,
+            r: 0.8,
+            colorStops: [
+              {
+                offset: 0,
+                color: "rgba(147, 235, 248, 0)", // 0% 处的颜色
+              },
+              {
+                offset: 1,
+                color: "rgba(145, 234, 248, 0.13)", // 100% 处的颜色
+              },
+            ],
+            globalCoord: false, // 缺省为 false
+          },
+          shadowColor: "rgba(129, 219, 248, 0.58)",
+          shadowOffsetX: -2,
+          shadowOffsetY: 2,
+          shadowBlur: 10,
+        },
+      };
+      let highlightItemStyle = {
+        normal: {
+          borderColor: "rgb(80, 224, 247)",
+          borderWidth: 1,
+          areaColor: {
+            type: "radial",
+            x: 0.5,
+            y: 0.5,
+            r: 0.8,
+            colorStops: [
+              {
+                offset: 0,
+                color: "rgba(147, 235, 248, 0)", // 0% 处的颜色
+              },
+              {
+                offset: 1,
+                color: "rgba(147, 235, 248, .2)", // 100% 处的颜色
+              },
+            ],
+            globalCoord: false, // 缺省为 false
+          },
+          shadowColor: "rgba(128, 217, 248, 1)",
+          // shadowColor: 'rgba(255, 255, 255, 1)',
+          shadowOffsetX: -2,
+          shadowOffsetY: 2,
+          shadowBlur: 10,
+        },
+        emphasis: {
+          borderColor: "rgba(147, 235, 248, 1)",
+          borderWidth: 1,
+          areaColor: {
+            type: "radial",
+            x: 0.5,
+            y: 0.5,
+            r: 0.8,
+            colorStops: [
+              {
+                offset: 0,
+                color: "rgba(147, 235, 248, 0)", // 0% 处的颜色
+              },
+              {
+                offset: 1,
+                color: "rgba(147, 235, 248, .2)", // 100% 处的颜色
+              },
+            ],
+            globalCoord: false, // 缺省为 false
+          },
+          shadowColor: "rgba(128, 217, 248, 1)",
+          // shadowColor: 'rgba(255, 255, 255, 1)',
+          shadowOffsetX: -2,
+          shadowOffsetY: 2,
+          shadowBlur: 10,
+        },
+      };
+      let chinaStyle = {
+        normal: {
+          borderColor: "rgb(255, 10, 10)",
+          borderWidth: 1,
+          areaColor: {
+            type: "radial",
+            x: 0.5,
+            y: 0.5,
+            r: 0.8,
+            colorStops: [
+              {
+                offset: 0,
+                color: "rgba(255, 31, 31, 0.09)", // 0% 处的颜色
+              },
+              {
+                offset: 0.2,
+                color: "rgba(255, 31, 31, 0.23)", // 0% 处的颜色
+              },
+              {
+                offset: 0.6,
+                color: "rgba(255, 31, 31, 0.45)", // 0% 处的颜色
+              },
+              {
+                offset: 0.7,
+                color: "rgba(255, 31, 31, 0.77)", // 0% 处的颜色
+              },
+              {
+                offset: 1,
+                color: "rgba(255, 0, 0, 0.77)", // 100% 处的颜色
+              },
+            ],
+            globalCoord: false, // 缺省为 false
+          },
+          shadowColor: "rgb(248, 129, 129)",
+          // shadowColor: 'rgba(255, 255, 255, 1)',
+          shadowOffsetX: -2,
+          shadowOffsetY: 2,
+          shadowBlur: 10,
+        },
+        emphasis: {
+          borderColor: "rgb(255, 10, 10)",
+          borderWidth: 1,
+          areaColor: {
+            type: "radial",
+            x: 0.5,
+            y: 0.5,
+            r: 0.8,
+            colorStops: [
+              {
+                offset: 0,
+                color: "rgb(255, 203, 31)", // 0% 处的颜色
+              },
+              {
+                offset: 1,
+                color: "rgba(248, 145, 145, 0.87)", // 100% 处的颜色
+              },
+            ],
+            globalCoord: false, // 缺省为 false
+          },
+          shadowColor: "rgb(248, 129, 129)",
+          // shadowColor: 'rgba(255, 255, 255, 1)',
+          shadowOffsetX: -2,
+          shadowOffsetY: 2,
+          shadowBlur: 10,
+        },
+      };
+      let hangzhouStyle = {
+        normal: {
+          borderColor: "rgb(255, 255, 255)",
+          borderWidth: 1,
+          areaColor: "rgb(255, 235, 10)",
+          shadowColor: "rgb(255, 252, 219)",
+          shadowOffsetX: -2,
+          shadowOffsetY: 2,
+          shadowBlur: 10,
+        },
+        emphasis: {
+          borderColor: "rgb(255, 235, 10)",
+          borderWidth: 1,
+          areaColor: "rgb(255, 235, 10)",
+          shadowColor: "rgb(255, 235, 10)",
+          shadowOffsetX: -2,
+          shadowOffsetY: 2,
+          shadowBlur: 10,
+        },
+      };
+      //generate normal area
+      let strArr = [
+        "Angola",
+        "Benin",
+        "Cameroon",
+        "Kenya",
+        "Botswana",
+        "Ghana",
+        "Gabon",
+        "Rwanda",
+        "Sierra Leone",
+        "Swaziland",
+        "Tanzania",
+        "Togo",
+        "Swaziland",
+        "Uganda",
+        "Namibia",
+        "Mozambique",
+        "Ethiopia",
+        "Lesotho",
+        "Madagascar",
+        "Malawi",
+        "Zambia",
+        "Zimbabwe",
+        "Peru",
+        "Vietnam",
+        "Nigeria",
+        "Indonesia",
+        "France",
+        "India",
+        "Italy",
+        "Cambodia",
+        "Greece",
+        "Burkina Faso",
+        "Liberia",
+        "Philippines",
+        "Niger",
+        "Kazakhstan",
+        "Egypt",
       ];
+      let highlightArea = strArr.map((i) => {
+        return {
+          name: i,
+          itemStyle: highlightItemStyle,
+        };
+      });
+
+      let coordsSet = [
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [17.478008046252885, -11.89758947644664],
+          ],
+          fromName: "杭州市",
+          toName: "Angola",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [2.305714528830206, 9.503013199615893],
+          ],
+          fromName: "杭州市",
+          toName: "Benin",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [12.948474142398263, 6.294168487480992],
+          ],
+          fromName: "杭州市",
+          toName: "Cameroon",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [37.95309411262371, 0.6899182318376179],
+          ],
+          fromName: "杭州市",
+          toName: "Kenya",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [23.85779956995608, -22.236609002062902],
+          ],
+          fromName: "杭州市",
+          toName: "Botswana",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [-1.219233362526581, 7.94530467243628],
+          ],
+          fromName: "杭州市",
+          toName: "Ghana",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [11.839410898545754, -0.628448459921234],
+          ],
+          fromName: "杭州市",
+          toName: "Gabon",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [29.919439681764082, -2.014687460047154],
+          ],
+          fromName: "杭州市",
+          toName: "Rwanda",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [-11.808781566553495, 8.543593293153963],
+          ],
+          fromName: "杭州市",
+          toName: "Sierra Leone",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [34.93574264768485, -6.35360420423765],
+          ],
+          fromName: "杭州市",
+          toName: "Tanzania",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [0.8990857571109684, 8.660743037717811],
+          ],
+          fromName: "杭州市",
+          toName: "Togo",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [32.34371768463123, 1.2821729218416205],
+          ],
+          fromName: "杭州市",
+          toName: "Uganda",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [18.16451345845268, -21.90858163281473],
+          ],
+          fromName: "杭州市",
+          toName: "Namibia",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [35.208577031290176, -17.525230309488748],
+          ],
+          fromName: "杭州市",
+          toName: "Mozambique",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [39.914902886544276, 8.729389557048396],
+          ],
+          fromName: "杭州市",
+          toName: "Ethiopia",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [28.24475317864227, -29.60168116924817],
+          ],
+          fromName: "杭州市",
+          toName: "Lesotho",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [46.68493466832544, -19.04163612493041],
+          ],
+          fromName: "杭州市",
+          toName: "Madagascar",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [34.23441182298881, -13.128986464184024],
+          ],
+          fromName: "杭州市",
+          toName: "Malawi",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [27.75521363430896, -13.162832953186246],
+          ],
+          fromName: "杭州市",
+          toName: "Zambia",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [29.717829640720844, -18.92700121981475],
+          ],
+          fromName: "杭州市",
+          toName: "Zimbabwe",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [-74.11416196781884, -8.522717984240291],
+          ],
+          fromName: "杭州市",
+          toName: "Peru",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [105.79110320454193, 16.374291050391896],
+          ],
+          fromName: "杭州市",
+          toName: "Vietnam",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [8.147632718717043, 9.609707376481591],
+          ],
+          fromName: "杭州市",
+          toName: "Nigeria",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [118.73586057233209, -2.3079333544632434],
+          ],
+          fromName: "杭州市",
+          toName: "Indonesia",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [2.936178131958199, 46.20410930340389],
+          ],
+          fromName: "杭州市",
+          toName: "France",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [82.83375236985977, 20.688393643630018],
+          ],
+          fromName: "杭州市",
+          toName: "India",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [12.246695926942852, 41.99599184660806],
+          ],
+          fromName: "杭州市",
+          toName: "Italy",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [105.03973078680701, 12.699186865507775],
+          ],
+          fromName: "杭州市",
+          toName: "Cambodia",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [24.255596388632085, 38.41864937016185],
+          ],
+          fromName: "杭州市",
+          toName: "Greece",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [-1.6932816211842325, 12.108709036312737],
+          ],
+          fromName: "杭州市",
+          toName: "Burkina Faso",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [-9.258988935497618, 6.52012979398834],
+          ],
+          fromName: "杭州市",
+          toName: "Liberia",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [121.86964934640937, 10.803250497287834],
+          ],
+          fromName: "杭州市",
+          toName: "Philippines",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [8.147632718717043, 9.609707376481591],
+          ],
+          fromName: "杭州市",
+          toName: "Niger",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [8.147632718717043, 9.609707376481591],
+          ],
+          fromName: "杭州市",
+          toName: "Nigeria",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [66.3759193479301, 47.641465195176835],
+          ],
+          fromName: "杭州市",
+          toName: "Kazakhstan",
+        },
+        {
+          coords: [
+            [120.161619, 30.253752],
+            [30.240135435012338, 26.60517034450628],
+          ],
+          fromName: "杭州市",
+          toName: "Egypt",
+        },
+      ];
+
+      // console.log(...normalArea, "--line306");
       let _this = this;
       this.chart.setOption({
-        geo3D: {
-          //TODO: 地图加载不进来
-          map: "chinamap",
+        geo: {
+          map: "worldmap",
           roam: true,
-          show: true,
-          boxWidth: 100,
-          boxHeight: 100,
-          itemStyle: {
-            areaColor: "#1d5e98",
-            opacity: 1,
-            borderWidth: 0.4,
-            borderColor: "#000",
-          },
-          top: "20%",
+          itemStyle: normalItemStyle,
+          regions: [
+            {
+              name: "China",
+              itemStyle: chinaStyle,
+            },
+            {
+              name: "杭州市",
+              itemStyle: hangzhouStyle,
+            },
+            ...highlightArea,
+          ],
         },
-        // series: [
-        //   {
-        //     type: "bar3D",
-        //     coordinateSystem: "geo3D",
-        //     data: data.map(function(item) {
-        //       return {
-        //         value: [item[1], item[0], item[2]],
-        //       };
-        //     }),
-        //     shading: "lambert",
-        //     label: {
-        //       fontSize: 16,
-        //       borderWidth: 1,
-        //     },
-        //     emphasis: {
-        //       label: {
-        //         fontSize: 20,
-        //         color: "#900",
-        //       },
-        //       itemStyle: {
-        //         color: "#900",
-        //       },
-        //     },
-        //   },
-        // ],
+        series: [
+          {
+            // name: item[2],
+            type: "lines",
+            zlevel: 2,
+            effect: {
+              show: true,
+              period: 5, //箭头指向速度，值越小速度越快
+              trailLength: 0.2, //特效尾迹长度[0,1]值越大，尾迹越长重
+              symbol: "arrow", //箭头图标
+              symbolSize: 6, //图标大小
+            },
+
+            lineStyle: {
+              normal: {
+                color: "#ffde24",
+                width: 1, //尾迹线条宽度
+                opacity: 0.2, //尾迹线条透明度
+                curveness: 0.3, //尾迹线条曲直度
+              },
+            },
+
+            label: {
+              normal: {
+                show: true,
+                position: "middle",
+                formatter: "{b}",
+              },
+            },
+            data: [...coordsSet],
+          },
+          {
+            //startPoint
+            type: "effectScatter",
+            coordinateSystem: "geo",
+            showEffectOn: "render",
+            zlevel: 1,
+            rippleEffect: {
+              period: 10,
+              scale: 3,
+              brushType: "fill",
+            },
+            hoverAnimation: true,
+            // label: {
+            //   normal: {
+            //     formatter: "{b}",
+            //     position: "right",
+            //     offset: [15, 0],
+            //     color: "#1DE9B6",
+            //     show: true,
+            //   },
+            // },
+            itemStyle: {
+              normal: {
+                color: "#fffd6b",
+                shadowBlur: 10,
+                shadowColor: "#333",
+              },
+            },
+            symbolSize: 12,
+            data: [{ value: [120.161619, 30.253752] }],
+            //   data: coordsSet.map((i) => {
+            // return {
+            //   value: i.coords[1],
+            // };
+          }, //地图线的动画
+          {
+            type: "effectScatter",
+            coordinateSystem: "geo",
+            showEffectOn: "render",
+            zlevel: 1,
+            rippleEffect: {
+              period: 10,
+              scale: 2,
+              brushType: "fill",
+            },
+            hoverAnimation: true,
+            // label: {
+            //   normal: {
+            //     formatter: "{b}",
+            //     position: "right",
+            //     offset: [15, 0],
+            //     color: "#1DE9B6",
+            //     show: true,
+            //   },
+            // },
+            itemStyle: {
+              normal: {
+                color: "rgb(80, 224, 247)",
+                shadowBlur: 10,
+                shadowColor: "#333",
+              },
+            },
+            symbolSize: 5,
+            data: coordsSet.map((i) => {
+              return {
+                value: i.coords[1],
+              };
+            }),
+          },
+        ],
       });
 
       _this.resize(); //首次绘制 resize

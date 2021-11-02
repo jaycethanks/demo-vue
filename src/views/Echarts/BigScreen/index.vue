@@ -10,7 +10,7 @@
               :color="['#0e2d5b', '#3781c2']"
               class="dv-border-box-x"
             >
-              <LeftOne />
+              <!-- <LeftOne /> -->
             </dv-border-box-7>
           </div>
           <div class="left-side-card">
@@ -18,7 +18,7 @@
               :color="['#0e2d5b', '#3781c2']"
               class="dv-border-box-x"
             >
-              <LeftTwo />
+              <!-- <LeftTwo /> -->
             </dv-border-box-7>
           </div>
           <div class="left-side-card">
@@ -26,7 +26,7 @@
               :color="['#0e2d5b', '#3781c2']"
               class="dv-border-box-x"
             >
-              <LeftThree />
+              <!-- <LeftThree /> -->
             </dv-border-box-7>
           </div>
         </div>
@@ -37,19 +37,9 @@
               class="dv-border-box-x"
               style="display:flex;justify-content:center;align-items:center"
             >
-              <swiper
-                class="coverflow-swiper-slide"
-                style="width:100%;height:90%;"
-                ref="mySwiper"
-                :options="swiperOption"
-              >
-                <!-- <swiper-slide>1</swiper-slide> -->
-                <!-- <swiper-slide>2</swiper-slide> -->
-                <swiper-slide><pia-chart id="asdnlasnf12wd" /> </swiper-slide>
-                <swiper-slide><pia-chart id="47823rwerw2wd" /> </swiper-slide>
-                <swiper-slide><pia-chart id="82349238be2wd" /> </swiper-slide>
-              </swiper>
-              <!-- <Global style="height:100%;width:100%" /> -->
+              <!-- <CssCarousel /> -->
+              <Global style="height:100%;width:100%" />
+              <!-- <pia-chart class="pia-chart" /> -->
             </dv-border-box-7>
           </section>
           <section class="center-btm-card">
@@ -57,7 +47,7 @@
               :color="['#0e2d5b', '#3781c2']"
               class="dv-border-box-x"
             >
-              <MainPartBtm />
+              <!-- <MainPartBtm /> -->
             </dv-border-box-7>
           </section>
         </div>
@@ -67,7 +57,7 @@
               :color="['#0e2d5b', '#3781c2']"
               class="dv-border-box-x"
             >
-              <RightOne />
+              <!-- <RightOne /> -->
             </dv-border-box-7>
           </div>
           <div class="right-side-card">
@@ -75,7 +65,7 @@
               :color="['#0e2d5b', '#3781c2']"
               class="dv-border-box-x"
             >
-              <RightTwo />
+              <!-- <RightTwo /> -->
             </dv-border-box-7>
           </div>
           <div class="right-side-card">
@@ -83,30 +73,8 @@
               :color="['#0e2d5b', '#3781c2']"
               class="dv-border-box-x"
             >
-              <swiper
-                style="height:100%"
-                ref="mySwiper"
-                :options="swiperOptionCube"
-              >
-                <swiper-slide>1</swiper-slide>
-                <swiper-slide>2</swiper-slide>
-                <swiper-slide>3</swiper-slide>
-                <swiper-slide>4</swiper-slide>
-                <!-- <swiper-slide><RightThree /> </swiper-slide> -->
-                <!-- <swiper-slide
-                  ><div style="width:300px;height:300px;background:yellow"></div
-                ></swiper-slide>
-                <swiper-slide
-                  ><div style="width:300px;height:300px;background:green"></div
-                ></swiper-slide>
-                <swiper-slide
-                  ><div style="width:300px;height:300px;background:red"></div
-                ></swiper-slide>
-                <swiper-slide
-                  ><div style="width:300px;height:300px;background:blue"></div
-                ></swiper-slide> -->
-              </swiper>
               <!-- <RightThree /> -->
+              <!-- <CssCarousel /> -->
             </dv-border-box-7>
           </div>
         </div>
@@ -126,11 +94,7 @@ import RightTwo from "./comps/RightPart/RightTwo.vue";
 import RightThree from "./comps/RightPart/RightThree.vue";
 import MainPartBtm from "./comps/MainPart/MainPartBtm.vue";
 import PiaChart from "./comps/Charts/PieChart.vue";
-
-// import style (<= Swiper 5.x)
-import "swiper/css/swiper.css";
-
-import { Swiper, SwiperSlide, directive } from "vue-awesome-swiper";
+import CssCarousel from "./comps/CssCarousel";
 
 export default {
   name: "DataView",
@@ -144,14 +108,10 @@ export default {
     RightTwo,
     RightThree,
     MainPartBtm,
-    Swiper,
-    SwiperSlide,
     PiaChart,
+    CssCarousel,
   },
 
-  directives: {
-    swiper: directive,
-  },
   created() {
     console.log("father created!!", "--line156");
   },
@@ -229,29 +189,10 @@ export default {
 }
 @keyframes slide {
   0% {
-    transform: translate3d(0, 0, 0);
+    transform: translateX(0);
   }
   100% {
-    transform: translate3d(-100vw, 0, 0);
+    transform: translateX(-100vw);
   }
-}
-</style>
-
-<style lang="scss" scoped>
-.swiper-slide {
-  // swiper coverflow 辅助样式
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-weight: bold;
-  background-color: #2c8dfb;
-  background-position: center;
-  background-size: cover;
-}
-
-.coverflow-swiper-slide .swiper-slide {
-  // width: 300px;
-  // height: 300px;
 }
 </style>

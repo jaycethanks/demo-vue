@@ -43,6 +43,7 @@ export default {
       this.chart = this.$echarts.init(this.$el, "macarons");
 
       this.chart.setOption({
+        background: "#f40",
         tooltip: {
           trigger: "item",
           formatter: "{a} <br/>{b} : {c} ({d}%)",
