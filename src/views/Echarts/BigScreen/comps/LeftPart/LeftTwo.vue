@@ -1,6 +1,9 @@
 <template>
   <div class="component-root-wrapper">
-    <dv-scroll-board :config="config" />
+    <div class="common-card-title" style="height:3.5rem">
+      订单详情
+    </div>
+    <dv-scroll-board style="height:calc(100% - 3.5rem)" :config="config" />
   </div>
 </template>
 <script>

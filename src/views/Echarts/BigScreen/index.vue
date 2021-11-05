@@ -4,13 +4,13 @@
     <dv-full-screen-container>
       <top-header class="top-header" />
       <div class="main-content">
-        <div class="left-side-wrapper">
+        <div class="left-side-wrapper side-wrapper">
           <div class="left-side-card">
             <dv-border-box-7
               :color="['#0e2d5b', '#3781c2']"
               class="dv-border-box-x"
             >
-              <!-- <LeftOne /> -->
+              <LeftOne />
             </dv-border-box-7>
           </div>
           <div class="left-side-card">
@@ -18,7 +18,7 @@
               :color="['#0e2d5b', '#3781c2']"
               class="dv-border-box-x"
             >
-              <!-- <LeftTwo /> -->
+              <LeftTwo />
             </dv-border-box-7>
           </div>
           <div class="left-side-card">
@@ -35,11 +35,9 @@
             <dv-border-box-7
               :color="['#0e2d5b', '#3781c2']"
               class="dv-border-box-x"
-              style="display:flex;justify-content:center;align-items:center"
+              style="display:flex;justify-content:center;align-items:center;position:relative"
             >
-              <!-- <CssCarousel /> -->
-              <Global style="height:100%;width:100%" />
-              <!-- <pia-chart class="pia-chart" /> -->
+              <MainPartTop />
             </dv-border-box-7>
           </section>
           <section class="center-btm-card">
@@ -51,7 +49,7 @@
             </dv-border-box-7>
           </section>
         </div>
-        <div class="right-side-wrapper">
+        <div class="right-side-wrapper side-wrapper">
           <div class="right-side-card">
             <dv-border-box-7
               :color="['#0e2d5b', '#3781c2']"
@@ -85,16 +83,19 @@
 
 <script>
 import topHeader from "./comps/topHeader";
-import Global from "./comps/Global";
+import Global from "./comps/MainPart/MainPartTop/Global.vue";
 import LeftOne from "./comps/LeftPart/LeftOne.vue";
 import LeftTwo from "./comps/LeftPart/LeftTwo.vue";
 import LeftThree from "./comps/LeftPart/LeftThree.vue";
 import RightOne from "./comps/RightPart/RightOne.vue";
 import RightTwo from "./comps/RightPart/RightTwo.vue";
 import RightThree from "./comps/RightPart/RightThree.vue";
+import MainPartTop from "./comps/MainPart/MainPartTop/index.vue";
 import MainPartBtm from "./comps/MainPart/MainPartBtm.vue";
 import PiaChart from "./comps/Charts/PieChart.vue";
 import CssCarousel from "./comps/CssCarousel";
+import "animate.css";
+import "flag-icon-css/css/flag-icon.css";
 
 export default {
   name: "DataView",
@@ -110,10 +111,7 @@ export default {
     MainPartBtm,
     PiaChart,
     CssCarousel,
-  },
-
-  created() {
-    console.log("father created!!", "--line156");
+    MainPartTop,
   },
 
   data() {
@@ -160,7 +158,6 @@ export default {
       },
     };
   },
-  methods: {},
 };
 </script>
 
@@ -177,6 +174,7 @@ export default {
 </style>
 <style lang="scss" scoped>
 @import "./assets/style/mainpage.scss";
+@import "./assets/style/tailwind_flex_snippet.css";
 
 #data-view {
   overflow: hidden;
@@ -194,5 +192,10 @@ export default {
   100% {
     transform: translateX(-100vw);
   }
+}
+</style>
+<style scoped>
+>>> .border-box-content {
+  overflow: hidden;
 }
 </style>

@@ -33,9 +33,15 @@ $gutter: 10px; //各板块margin值
     }
     .left-side-wrapper {
       // border: 1px solid rgb(0, 140, 255);
+    }
+    .right-side-wrapper {
+      // border: 1px solid rgb(255, 187, 0);
+    }
+    .side-wrapper {
       height: 100%;
-      width: 30vw;
-      .left-side-card {
+      width: 20vw;
+      .left-side-card,
+      .right-side-card {
         // border: 1px solid salmon;
         height: calc(33.333333% - #{$gutter});
         width: calc(100% - #{$gutter});
@@ -44,10 +50,10 @@ $gutter: 10px; //各板块margin值
     .center-wrapper {
       // border: 1px solid red;
       height: 100%;
-      width: 40vw;
+      width: 60vw;
       .center-top-card {
         // border: 1px solid gold;
-        height: calc(40% - #{$gutter});
+        height: calc(60% - #{$gutter});
         width: calc(100% - #{$gutter});
         /deep/.border-box-content {
           // datav 的内部样式
@@ -58,17 +64,7 @@ $gutter: 10px; //各板块margin值
       }
       .center-btm-card {
         // border: 1px solid hotpink;
-        height: calc(60% - #{$gutter});
-        width: calc(100% - #{$gutter});
-      }
-    }
-    .right-side-wrapper {
-      // border: 1px solid rgb(255, 187, 0);
-      height: 100%;
-      width: 30vw;
-      .right-side-card {
-        // border: 1px solid palegreen;
-        height: calc(33.333333% - #{$gutter});
+        height: calc(40% - #{$gutter});
         width: calc(100% - #{$gutter});
       }
     }
