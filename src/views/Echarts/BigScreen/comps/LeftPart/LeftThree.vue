@@ -1,25 +1,23 @@
 <template>
   <div class="component-root-wrapper">
-    <dv-border-box-12 style="padding:10px">
-      <section class="left-one-openaccount-section">
-        <p class="card-label">月总售水量</p>
-        <div class="value-chart">
-          <div class="value-chart-val">153124吨</div>
-          <div class="value-chart-cht">
-            <LiquidChartSell style="width:100%;height:100%" />
-          </div>
+    <section class="left-one-openaccount-section">
+      <p class="card-label">月总售水量</p>
+      <div class="value-chart">
+        <div class="value-chart-val">153124吨</div>
+        <div class="value-chart-cht">
+          <LiquidChartSell style="width:100%;height:100%" />
         </div>
-      </section>
-      <section class="left-one-closeaccount-section">
-        <p class="card-label">月总使用量</p>
-        <div class="value-chart">
-          <div class="value-chart-val">5456463吨</div>
-          <div class="value-chart-cht">
-            <LiquidChartUse style="width:100%;height:100%" />
-          </div>
+      </div>
+    </section>
+    <section class="left-one-closeaccount-section">
+      <p class="card-label">月总使用量</p>
+      <div class="value-chart">
+        <div class="value-chart-val">5456463吨</div>
+        <div class="value-chart-cht">
+          <LiquidChartUse style="width:100%;height:100%" />
         </div>
-      </section>
-    </dv-border-box-12>
+      </div>
+    </section>
   </div>
 </template>
 <script>

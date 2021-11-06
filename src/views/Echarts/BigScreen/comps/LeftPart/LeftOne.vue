@@ -1,41 +1,30 @@
 <template>
   <div class="component-root-wrapper">
-    <dv-border-box-12 style="padding:10px">
-      <section class="left-one-openaccount-section">
-        <p class="card-label">开户数</p>
-        <div class="value-chart">
-          <div class="value-chart-val">1531241355</div>
-          <div class="value-chart-cht">
-            <OpenAccount style="width:100%;height:100%" />
-          </div>
-        </div>
-      </section>
-      <section class="left-one-closeaccount-section">
-        <p class="card-label">销户数</p>
-        <div class="value-chart">
-          <div class="value-chart-val">5456463</div>
-          <div class="value-chart-cht">
-            <CloseAccount style="width:100%;height:100%" />
-          </div>
-        </div>
-      </section>
-    </dv-border-box-12>
+    <p style="font-family:wgsFont;font-size:48px;color:#0f0">12581189</p>
   </div>
 </template>
 <script>
-import OpenAccount from "../Charts/OpenAccount.vue";
-import CloseAccount from "../Charts/OpenAccount.vue";
 export default {
-  components: {
-    OpenAccount,
-    CloseAccount,
-  },
+  components: {},
   data() {
     return {};
   },
 };
 </script>
 <style lang="scss" scoped>
+@font-face {
+  font-family: "wgsFont";
+  src: url("../../assets/fonts/open_24_display_st-webfont.eot"); /* IE9 Compat Modes */
+  src: url("../../assets/fonts/open_24_display_st-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../../assets/fonts/open_24_display_st-webfont.woff")
+      format("woff"),
+    /* Modern Browsers */
+      url("../../assets/fonts/open_24_display_st-webfont.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */
+      url("../../assets/fonts/open_24_display_st-webfont.svg") format("svg"); /* Legacy iOS */
+}
 // @import url("../../assets/style/_variables.scss");
 $cardlabelHeight: 50px;
 

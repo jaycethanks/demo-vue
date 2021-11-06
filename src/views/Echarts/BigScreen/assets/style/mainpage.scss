@@ -1,4 +1,5 @@
 $titleHeight: 80px;
+$gutter: 10px; //各板块margin值
 #data-view {
   width: 100vw;
   height: 100vh;
@@ -25,39 +26,46 @@ $titleHeight: 80px;
     justify-content: center;
     align-items: center;
     flex-wrap: nowrap;
+    // common chart
+    .dv-border-box-x {
+      margin: $gutter;
+      padding: 5px;
+    }
     .left-side-wrapper {
       // border: 1px solid rgb(0, 140, 255);
+    }
+    .right-side-wrapper {
+      // border: 1px solid rgb(255, 187, 0);
+    }
+    .side-wrapper {
       height: 100%;
-      width: 30vw;
-      .left-side-card {
+      width: 20vw;
+      .left-side-card,
+      .right-side-card {
         // border: 1px solid salmon;
-        height: 33.333333%;
-        width: 100%;
+        height: calc(33.333333% - #{$gutter});
+        width: calc(100% - #{$gutter});
       }
     }
     .center-wrapper {
       // border: 1px solid red;
       height: 100%;
-      width: 40vw;
+      width: 60vw;
       .center-top-card {
         // border: 1px solid gold;
-        height: 40%;
-        width: 100%;
+        height: calc(60% - #{$gutter});
+        width: calc(100% - #{$gutter});
+        /deep/.border-box-content {
+          // datav 的内部样式
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
       }
       .center-btm-card {
         // border: 1px solid hotpink;
-        height: 60%;
-        width: 100%;
-      }
-    }
-    .right-side-wrapper {
-      // border: 1px solid rgb(255, 187, 0);
-      height: 100%;
-      width: 30vw;
-      .right-side-card {
-        // border: 1px solid palegreen;
-        height: 33.333333%;
-        width: 100%;
+        height: calc(40% - #{$gutter});
+        width: calc(100% - #{$gutter});
       }
     }
   }

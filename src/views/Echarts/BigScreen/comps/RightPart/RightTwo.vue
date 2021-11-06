@@ -1,10 +1,8 @@
 <template>
   <div class="component-root-wrapper">
-    <dv-border-box-12 style="padding:10px">
-      <section class="left-one-openaccount-section">
-        <RightBar style="width:100%;height:100%" />
-      </section>
-    </dv-border-box-12>
+    <section class="left-one-openaccount-section">
+      <RightBar style="width:100%;height:100%" />
+    </section>
   </div>
 </template>
 <script>

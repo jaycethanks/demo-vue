@@ -1,0 +1,170 @@
+<template>
+  <div :class="className" />
+</template>
+
+<script>
+import resize from "../mixins/resize.js";
+
+const animationDuration = 1000;
+
+export default {
+  mixins: [resize],
+  props: {
+    className: {
+      type: String,
+      default: "chart",
+    },
+    dataSource: {
+      // 不直接传入轴数据 和 系列数据的原因是因为tooltip 需要展示额外的数据字段，ringRatio
+      type: Array,
+      default: () => [],
+    },
+    tooltipItem: {
+      type: String,
+      default: "Link Relative Ratio",
+    },
+  },
+  data() {
+    return {
+      chart: null,
+    };
+  },
+  computed: {
+    xAxisData: function() {
+      // 从props 中取出轴数据
+      return this.dataSource.map((it) => it.time);
+    },
+    seriesData: function() {
+      // 从props 中取出系列
+      return this.dataSource.map((it) => it.volume);
+    },
+  },
+  watch: {
+    // 监听数据变化，触发图表绘制刷新
+    xAxisData: {
+      handler(val) {
+        this.drawChart();
+      },
+    },
+    seriesData: {
+      handler(val) {
+        this.drawChart();
+      },
+    },
+  },
+  mounted() {
+    this.chart = this.$echarts.init(this.$el, "macarons");
+    this.drawChart();
+  },
+  beforeDestroy() {
+    if (!this.chart) {
+      return;
+    }
+    this.chart.dispose();
+    this.chart = null;
+  },
+  methods: {
+    drawChart() {
+      let _this = this;
+      this.chart.setOption(
+        {
+          geo3D: {
+            map: "chinamap",
+            shading: "color",
+            regionHeight: 0,
+            instancing: true, //会将 GeoJSON 中所有的 geometry 合并成一个
+            boxDepth: 100, // x 轴转动角度 ？？？
+
+            itemStyle: {
+              color: "#3d98ff",
+            },
+            label: {
+              show: true,
+              distance: 10,
+              textStyle: {
+                color: "#f0f",
+                fontSize: 16,
+              },
+            },
+
+            regions: [
+              {
+                name: "浙江省",
+                regionHeight: 1,
+                itemStyle: {
+                  color: "#ff440055",
+                },
+              },
+              {
+                name: "江西省",
+                regionHeight: 10,
+                itemStyle: {
+                  color: "#00ff1554",
+                },
+              },
+            ],
+            // shading: "realistic",
+            viewControl: {
+              autoRotate: false,
+              rotateSensitivity: 0,
+              panSensitivity: 1,
+              distance: 10,
+              alpha: 15,
+              beta: 85,
+              center: [10, 0, 0],
+            },
+          },
+        },
+
+        // series: [
+        //   {
+        //     type: "bar3D",
+        //     coordinateSystem: "geo3D",
+        //     data: data.map(function(item) {
+        //       return {
+        //         value: [item[1], item[0], item[2]],
+        //       };
+        //     }),
+        //     shading: "lambert",
+        //     label: {
+        //       fontSize: 16,
+        //       borderWidth: 1,
+        //     },
+        //     emphasis: {
+        //       label: {
+        //         fontSize: 20,
+        //         color: "#900",
+        //       },
+        //       itemStyle: {
+        //         color: "#900",
+        //       },
+        //     },
+        //   },
+        // ],
+      );
+
+      _this.resize(); //首次绘制 resize
+      // 窗口缩放resize
+      window.addEventListener("resize", _this.resize()); //这个不加也可以，但是加了在resize的时候更加流畅
+    },
+    resize() {
+      this.chart.resize({
+        //https://echarts.apache.org/zh/api.html#echartsInstance.resize
+        //注意，将在每次查询时被执行
+        width: "auto", //自动获取dom宽度
+        height: (() => {
+          // console.log(document.body.clientHeight * 0.3 + "px", "--line157");
+          // return document.body.clientHeight * 0.3 + "px";
+          return "auto";
+        })(),
+        //由于组件时层级嵌套的，外层容器高度由内层撑开。 所以要想动态生成高度，只能去获取一个动态计算出的高度，如viewport的高度（动态）
+      });
+    },
+  },
+};
+</script>
+<style scoped>
+.tooltip-wrapper {
+  background-color: aqua;
+}
+</style>
