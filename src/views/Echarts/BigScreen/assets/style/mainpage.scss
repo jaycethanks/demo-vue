@@ -1,5 +1,5 @@
-$titleHeight: 80px;
-$gutter: 10px; //各板块margin值
+$titleHeight: 8rem;
+$gutter: 1rem; //各板块margin值
 #data-view {
   width: 100vw;
   height: 100vh;
@@ -31,12 +31,6 @@ $gutter: 10px; //各板块margin值
       margin: $gutter;
       padding: 5px;
     }
-    .left-side-wrapper {
-      // border: 1px solid rgb(0, 140, 255);
-    }
-    .right-side-wrapper {
-      // border: 1px solid rgb(255, 187, 0);
-    }
     .side-wrapper {
       height: 100%;
       width: 20vw;
@@ -46,6 +40,15 @@ $gutter: 10px; //各板块margin值
         height: calc(33.333333% - #{$gutter});
         width: calc(100% - #{$gutter});
       }
+      .left-side-card.left-one {
+        height: calc(10% - #{$gutter});
+      }
+    }
+    .left-side-wrapper {
+      // border: 1px solid rgb(0, 140, 255);
+    }
+    .right-side-wrapper {
+      // border: 1px solid rgb(255, 187, 0);
     }
     .center-wrapper {
       // border: 1px solid red;

@@ -62,15 +62,15 @@ export default {
       let _this = this;
       let pieData = [
         {
-          name: "昨日连通率",
+          name: "日",
           value: 50,
         },
         {
-          name: "上周连通率",
+          name: "周",
           value: 30,
         },
         {
-          name: "上月连通率",
+          name: "月",
           value: 70,
         },
       ];
@@ -79,12 +79,12 @@ export default {
       pieData.forEach(function(item, index) {
         titleArr.push({
           text: item.name,
-          left: index * 35 + 15.5 + "%",
-          // top: "10%",
+          left: index * 34 + 15.5 + "%",
+          top: "50%",
           textAlign: "center",
           textStyle: {
             fontWeight: "normal",
-            fontSize: "20",
+            fontSize: "3rem",
             color: "white",
             textAlign: "center",
           },
@@ -96,9 +96,8 @@ export default {
             show: true,
           },
           clockwise: true,
-          radius: ["20%", "25%"],
+          radius: ["40%", "50%"],
           hoverAnimation: false,
-
           center: [index * 34 + 15.5 + "%", "45%"],
           data: [
             {
@@ -138,12 +137,13 @@ export default {
                 formatter: function(params) {
                   return params.value + "%";
                 },
-                position: "center",
+                top: 10,
                 show: true,
                 textStyle: {
                   fontSize: "25",
-                  // fontWeight: 'bold',
-                  color: "#1cc7ff",
+                  fontWeight: "bold",
+                  fontSize: "3rem",
+                  color: ["#fdcb58", "#fd5858", "#8c87f2"][index],
                 },
                 position: "center",
               },

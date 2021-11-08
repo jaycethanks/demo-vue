@@ -1,15 +1,18 @@
 <template>
   <div class="component-root-wrapper">
     <section class="left-one-openaccount-section">
-      <RightBar style="width:100%;height:100%" />
+      <LineLeakage style="width:100%;height:25%" />
+      <LineLeakage style="width:100%;height:25%" />
+      <LineLeakage style="width:100%;height:25%" />
+      <LineLeakage style="width:100%;height:25%" />
     </section>
   </div>
 </template>
 <script>
-import RightBar from "../Charts/RightBar.vue";
+import LineLeakage from "../Charts/LineLeakage.vue";
 export default {
   components: {
-    RightBar,
+    LineLeakage,
   },
   data() {
     return {};
