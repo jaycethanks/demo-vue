@@ -2,7 +2,7 @@
   <div class="component-root-wrapper">
     <section class="left-one-openaccount-section">
       <PieComSuccRat style="width:100%;height:50%" />
-      <LineComSuccRat style="width:100%;height:50%" />
+      <LineComSuccRat style="width:100%;height:50%;" />
     </section>
   </div>
 </template>
@@ -47,7 +47,7 @@ $cardlabelHeight: 50px;
         align-items: center;
         width: 30%;
         height: 100%;
-        font-size: 24px;
+        font-size: 0.9vw;
         color: aqua;
         // background-color: green;
       }

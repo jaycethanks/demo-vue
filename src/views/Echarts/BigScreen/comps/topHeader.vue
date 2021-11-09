@@ -92,8 +92,9 @@ export default {
       transform: translateX(-50%);
       position: absolute;
       margin: 0;
-      font-size: 6rem;
+      font-size: 2.3vw;
       color: rgb(0, 0, 0);
+      padding: 5px;
       // text-shadow: 0 0 5px $color, 0 0 10px $color, 0 0 20px $color,
       //   0 0 40px $color, 0 0 80px $color, 0 0 90px $color, 0 0 100px $color,
       //   0 0 150px $color;
@@ -110,7 +111,7 @@ export default {
       filter: brightness(110%);
       -webkit-background-clip: text;
       font-weight: 800;
-      letter-spacing: 10px;
+      letter-spacing: 0.3em;
     }
   }
 }

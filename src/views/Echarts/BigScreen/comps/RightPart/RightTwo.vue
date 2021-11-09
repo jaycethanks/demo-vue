@@ -1,10 +1,18 @@
 <template>
   <div class="component-root-wrapper">
     <section class="left-one-openaccount-section">
-      <LineLeakage style="width:100%;height:25%" />
-      <LineLeakage style="width:100%;height:25%" />
-      <LineLeakage style="width:100%;height:25%" />
-      <LineLeakage style="width:100%;height:25%" />
+      <div
+        style="
+          width: 100%;
+          height: 5%;
+          text-align: center;
+          font-size: 20px;
+          color: #fff;
+        "
+      >
+        管网漏损情况
+      </div>
+      <LineLeakage style="width: 100%; height: calc(95%)" />
     </section>
   </div>
 </template>

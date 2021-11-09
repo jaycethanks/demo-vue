@@ -28,7 +28,7 @@ export default {
     };
   },
   computed: {
-    seriesData: function() {
+    seriesData: function () {
       // 从props 中取出系列
       return this.dataSource.map((it) => it);
     },
@@ -76,15 +76,15 @@ export default {
       ];
       var titleArr = [],
         seriesArr = [];
-      pieData.forEach(function(item, index) {
+      pieData.forEach(function (item, index) {
         titleArr.push({
           text: item.name,
-          left: index * 34 + 15.5 + "%",
-          top: "50%",
+          left: index * 34 + 13.5 + "%",
+          top: "48%",
           textAlign: "center",
           textStyle: {
             fontWeight: "normal",
-            fontSize: "3rem",
+            fontSize: "16px",
             color: "white",
             textAlign: "center",
           },
@@ -96,7 +96,7 @@ export default {
             show: true,
           },
           clockwise: true,
-          radius: ["40%", "50%"],
+          radius: ["50%", "70%"],
           hoverAnimation: false,
           center: [index * 34 + 15.5 + "%", "45%"],
           data: [
@@ -134,15 +134,14 @@ export default {
                 },
               },
               label: {
-                formatter: function(params) {
+                formatter: function (params) {
                   return params.value + "%";
                 },
                 top: 10,
                 show: true,
                 textStyle: {
-                  fontSize: "25",
+                  fontSize: "16",
                   fontWeight: "bold",
-                  fontSize: "3rem",
                   color: ["#fdcb58", "#fd5858", "#8c87f2"][index],
                 },
                 position: "center",

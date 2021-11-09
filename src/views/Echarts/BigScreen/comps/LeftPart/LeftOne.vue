@@ -46,13 +46,13 @@ $cardlabelHeight: 50px;
     // border: 1px solid red;
     box-sizing: border-box;
     .field-label {
-      font-size: 2rem;
+      font-size: 0.01vw;
       font-weight: 600;
       color: rgb(0, 132, 255);
       text-shadow: rgb(0, 132, 255) 0 0 3px;
     }
     .field-value {
-      font-size: 4rem;
+      font-size: 1.4vw;
       color: #fff;
     }
   }

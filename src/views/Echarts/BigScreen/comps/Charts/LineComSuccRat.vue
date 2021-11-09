@@ -66,8 +66,13 @@ export default {
           left: "center",
           textStyle: {
             color: "#fff",
-            fontSize: "2.5rem",
+            fontSize: "23",
           },
+        },
+        grid: {
+          bottom: 20,
+          top: 40,
+          right: 55,
         },
 
         tooltip: {
@@ -80,19 +85,27 @@ export default {
           type: "category",
           boundaryGap: true,
           data: ["9/12", "9/13", "9/14", "9/15", "9/16", "9/17", "9/18"],
+          axisLabel: {
+            color: "#1fe9ff",
+          },
         },
         yAxis: {
           type: "value",
+          splitLine: {
+            show: false,
+          },
           max: 100,
           min: 0,
           axisLabel: {
             formatter: "{value} %",
+            color: "#1fe9ff",
           },
         },
         series: [
           {
             name: "Highest",
             type: "bar",
+            barWidth: 20,
             data: [100, 100, 87, 100, 76, 86, 93],
             // markPoint: {
             //   data: [
@@ -101,7 +114,24 @@ export default {
             //   ],
             // },
             markLine: {
-              data: [{ type: "average", name: "Avg" }],
+              silent: true,
+              symbol: "none",
+              lineStyle: {
+                color: "#4dfff3",
+                width: 2,
+                shadowColor: "rgb(0, 0, 0)",
+                shadowBlur: 10,
+              },
+              label: {
+                color: "#1fe9ff",
+                formatter: "{c} %",
+              },
+              data: [
+                {
+                  type: "average",
+                  name: "Avg",
+                },
+              ],
             },
             itemStyle: {
               color: {

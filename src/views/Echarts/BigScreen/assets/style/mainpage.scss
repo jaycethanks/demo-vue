@@ -40,14 +40,23 @@ $gutter: 1rem; //各板块margin值
         height: calc(33.333333% - #{$gutter});
         width: calc(100% - #{$gutter});
       }
+    }
+    .left-side-wrapper {
       .left-side-card.left-one {
         height: calc(10% - #{$gutter});
       }
-    }
-    .left-side-wrapper {
       // border: 1px solid rgb(0, 140, 255);
     }
     .right-side-wrapper {
+      .right-side-card.right-one {
+        height: calc(25% - #{$gutter});
+      }
+      .right-side-card.right-two {
+        height: calc(50% - #{$gutter});
+      }
+      .right-side-card.right-three {
+        height: calc(25% - #{$gutter});
+      }
       // border: 1px solid rgb(255, 187, 0);
     }
     .center-wrapper {
