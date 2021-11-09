@@ -5,7 +5,7 @@
       <top-header class="top-header" />
       <div class="main-content">
         <div class="left-side-wrapper side-wrapper">
-          <div class="left-side-card">
+          <div class="left-side-card left-one">
             <dv-border-box-7
               :color="['#0e2d5b', '#3781c2']"
               class="dv-border-box-x"
@@ -13,7 +13,7 @@
               <LeftOne />
             </dv-border-box-7>
           </div>
-          <div class="left-side-card">
+          <div class="left-side-card left-two">
             <dv-border-box-7
               :color="['#0e2d5b', '#3781c2']"
               class="dv-border-box-x"
@@ -21,7 +21,7 @@
               <LeftTwo />
             </dv-border-box-7>
           </div>
-          <div class="left-side-card">
+          <div class="left-side-card left-three">
             <dv-border-box-7
               :color="['#0e2d5b', '#3781c2']"
               class="dv-border-box-x"
@@ -50,23 +50,23 @@
           </section>
         </div>
         <div class="right-side-wrapper side-wrapper">
-          <div class="right-side-card">
+          <div class="right-side-card right-one">
             <dv-border-box-7
               :color="['#0e2d5b', '#3781c2']"
               class="dv-border-box-x"
             >
-              <!-- <RightOne /> -->
+              <RightOne />
             </dv-border-box-7>
           </div>
-          <div class="right-side-card">
+          <div class="right-side-card right-two">
             <dv-border-box-7
               :color="['#0e2d5b', '#3781c2']"
               class="dv-border-box-x"
             >
-              <!-- <RightTwo /> -->
+              <RightTwo />
             </dv-border-box-7>
           </div>
-          <div class="right-side-card">
+          <div class="right-side-card right-three">
             <dv-border-box-7
               :color="['#0e2d5b', '#3781c2']"
               class="dv-border-box-x"
@@ -169,8 +169,23 @@ export default {
   display: none !important;
 }
 </style>
-<style lang="css" scoped>
-/* temp */
+<style>
+html {
+  font-size: 14px;
+}
+@font-face {
+  /* lcd 字体 */
+  font-family: "wgsFont";
+  src: url("./assets/fonts/open_24_display_st-webfont.eot"); /* IE9 Compat Modes */
+  src: url("./assets/fonts/open_24_display_st-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("./assets/fonts/open_24_display_st-webfont.woff")
+      format("woff"),
+    /* Modern Browsers */ url("./assets/fonts/open_24_display_st-webfont.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */
+      url("./assets/fonts/open_24_display_st-webfont.svg") format("svg"); /* Legacy iOS */
+}
 </style>
 <style lang="scss" scoped>
 @import "./assets/style/mainpage.scss";
