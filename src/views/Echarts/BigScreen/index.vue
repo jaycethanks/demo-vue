@@ -2,7 +2,7 @@
   <div id="data-view">
     <div class="back-ground-img"></div>
     <dv-full-screen-container>
-      <top-header class="top-header" />
+      <topHeader class="top-header" />
       <div class="main-content">
         <div class="left-side-wrapper side-wrapper">
           <div class="left-side-card left-one">
@@ -26,7 +26,7 @@
               :color="['#0e2d5b', '#3781c2']"
               class="dv-border-box-x"
             >
-              <!-- <LeftThree /> -->
+              <LeftThree />
             </dv-border-box-7>
           </div>
         </div>
@@ -35,7 +35,12 @@
             <dv-border-box-7
               :color="['#0e2d5b', '#3781c2']"
               class="dv-border-box-x"
-              style="display:flex;justify-content:center;align-items:center;position:relative"
+              style="
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+              "
             >
               <MainPartTop />
             </dv-border-box-7>
@@ -45,7 +50,7 @@
               :color="['#0e2d5b', '#3781c2']"
               class="dv-border-box-x"
             >
-              <!-- <MainPartBtm /> -->
+              <MainPartBtm />
             </dv-border-box-7>
           </section>
         </div>
@@ -71,7 +76,7 @@
               :color="['#0e2d5b', '#3781c2']"
               class="dv-border-box-x"
             >
-              <!-- <RightThree /> -->
+              <RightThree />
               <!-- <CssCarousel /> -->
             </dv-border-box-7>
           </div>
@@ -82,7 +87,7 @@
 </template>
 
 <script>
-import topHeader from "./comps/topHeader";
+import topHeader from "./comps/TopHeader/";
 import Global from "./comps/MainPart/MainPartTop/Global.vue";
 import LeftOne from "./comps/LeftPart/LeftOne.vue";
 import LeftTwo from "./comps/LeftPart/LeftTwo.vue";
@@ -91,7 +96,8 @@ import RightOne from "./comps/RightPart/RightOne.vue";
 import RightTwo from "./comps/RightPart/RightTwo.vue";
 import RightThree from "./comps/RightPart/RightThree.vue";
 import MainPartTop from "./comps/MainPart/MainPartTop/index.vue";
-import MainPartBtm from "./comps/MainPart/MainPartBtm.vue";
+import MainPartBtm from "./comps/MainPart/MainPartBtm/index.vue";
+
 import PiaChart from "./comps/Charts/PieChart.vue";
 import CssCarousel from "./comps/CssCarousel";
 import "animate.css";
@@ -108,10 +114,10 @@ export default {
     RightOne,
     RightTwo,
     RightThree,
-    MainPartBtm,
     PiaChart,
     CssCarousel,
     MainPartTop,
+    MainPartBtm,
   },
 
   data() {
@@ -187,9 +193,9 @@ html {
       url("./assets/fonts/open_24_display_st-webfont.svg") format("svg"); /* Legacy iOS */
 }
 </style>
-<style lang="scss" scoped>
+<style lang="scss" >
 @import "./assets/style/mainpage.scss";
-@import "./assets/style/tailwind_flex_snippet.css";
+@import "./assets/style/tailwind_flex_snippet.scss";
 
 #data-view {
   overflow: hidden;

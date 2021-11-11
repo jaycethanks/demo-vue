@@ -1,15 +1,15 @@
 <template>
   <div class="component-root-wrapper">
     <section class="left-one-openaccount-section">
-      <MidChart style="width:100%;height:100%" />
+      <Bar3dTradeDist style="width: 100%; height: 100%" />
     </section>
   </div>
 </template>
 <script>
-import MidChart from "../Charts/MidChart.vue";
+import Bar3dTradeDist from "../../Charts/Bar3dTradeDist.vue";
 export default {
   components: {
-    MidChart,
+    Bar3dTradeDist,
   },
   data() {
     return {};

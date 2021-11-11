@@ -109,12 +109,14 @@ export default {
                     {
                       offset: 0,
                       // color: "#1d54f7",
-                      color: ["#fdcb58", "#fd5858", "#8c87f2"][index],
+                      // color: ["#fdcb58", "#fd5858", "#8c87f2"][index],
+                      color: ["#5778ff", "#40f7c9", "#8acaff"][index],
                     },
                     {
                       offset: 1,
                       // color: "#68eaf9",
-                      color: ["#ff810a", "#ff0aeb", "#4405ff"][index],
+                      // color: ["#ff810a", "#ff0aeb", "#4405ff"][index],
+                      color: ["#476cff73", "#54f8cf80", "#85c8ff8a"][index],
                     },
                   ],
                 },
@@ -123,12 +125,14 @@ export default {
                     {
                       offset: 0,
                       // color: "#1d54f7",
-                      color: ["#fdcb58", "#fd5858", "#8c87f2"][index],
+                      // color: ["#fdcb58", "#fd5858", "#8c87f2"][index],
+                      color: ["#0033ff", "#09f1b8", "#40a9ff"][index],
                     },
                     {
                       offset: 1,
                       // color: "#68eaf9"
-                      color: ["#ff810a", "#ff0aeb", "#4405ff"][index],
+                      // color: ["#ff810a", "#ff0aeb", "#4405ff"][index],
+                      color: ["#0033ff91", "#09f1b785", "#42aaff8a"][index],
                     },
                   ],
                 },
@@ -142,7 +146,8 @@ export default {
                 textStyle: {
                   fontSize: "16",
                   fontWeight: "bold",
-                  color: ["#fdcb58", "#fd5858", "#8c87f2"][index],
+                  // color: ["#fdcb58", "#fd5858", "#8c87f2"][index],
+                  color: ["#0033ff", "#09f1b8", "#40a9ff"][index],
                 },
                 position: "center",
               },

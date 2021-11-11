@@ -5,9 +5,7 @@
     <dv-decoration-8 class="header-right-decoration" :reverse="true" /> -->
     <!-- <div class="header-decoration"></div> -->
     <div class="center-title">
-      <span data-text="莱宸系统运营展示" class="center-title-style"
-        >莱宸系统运营展示</span
-      >
+      <!-- <span data-text="莱宸系统运营展示" class="center-title-style">莱宸系统运营展示</span> -->
     </div>
     <!-- <div class="header-decoration" style="transform: rotateY(180deg);"></div> -->
   </div>
