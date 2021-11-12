@@ -4,7 +4,7 @@
 
 <script>
 // import resize from "@/views/dashboard/mixins/resize";
-
+let chart = null;
 export default {
   // mixins: [resize],
   props: {
@@ -24,11 +24,11 @@ export default {
   },
   data() {
     return {
-      chart: null,
+      // chart: null,
     };
   },
   computed: {
-    seriesData: function() {
+    seriesData: function () {
       // 从props 中取出系列
       return this.dataSource.map((it) => it);
     },
@@ -47,20 +47,20 @@ export default {
     },
   },
   mounted() {
-    this.chart = this.$echarts.init(this.$el, "macarons");
+    chart = this.$echarts.init(this.$el, "macarons");
     this.drawChart();
   },
   beforeDestroy() {
-    if (!this.chart) {
+    if (!chart) {
       return;
     }
-    this.chart.dispose();
-    this.chart = null;
+    chart.dispose();
+    chart = null;
   },
   methods: {
     drawChart() {
       let _this = this;
-      this.chart.setOption({
+      chart.setOption({
         title: {
           text: "近七日通信情况",
           left: "center",
@@ -160,7 +160,7 @@ export default {
       window.addEventListener("resize", _this.resize()); //这个不加也可以，但是加了在resize的时候更加流畅
     },
     resize() {
-      this.chart.resize({
+      chart.resize({
         //https://echarts.apache.org/zh/api.html#echartsInstance.resize
         //注意，将在每次查询时被执行
         width: "auto", //自动获取dom宽度
