@@ -264,10 +264,6 @@ export default {
           ],
         ],
         [
-          "Swaziland",
-          ["", "", "", "", "", "", "", "6.00", "6.00", "6.00", "6.00", "6.00"],
-        ],
-        [
           "Tanzania",
           [
             "",
@@ -670,11 +666,11 @@ export default {
           data: item[1],
           showSymbol: false,
           itemStyle: {
-            color: "#0f73ffe3",
+            color: "#ff0f0fe3",
             shadowBlur: 2,
             shadowOffsetX: 0,
             shadowOffsetY: 0,
-            shadowColor: "#0f73ffe3",
+            shadowColor: "#ff0f0fbf",
           },
           areaStyle: {
             color: {
@@ -685,30 +681,31 @@ export default {
               colorStops: [
                 {
                   offset: 0,
-                  color: "#0f73ffe3", // 0% 处的颜色
+                  color: "#ff0f0fe3", // 0% 处的颜色
                 },
                 {
                   offset: 0.5,
-                  color: "#0f73ff40", // 0% 处的颜色
+                  color: "#ff0f0f3d", // 0% 处的颜色
                 },
                 {
                   offset: 1,
-                  color: "#0f73ff0a", // 100% 处的颜色
+                  color: "#ff0f0f0f", // 100% 处的颜色
                 },
               ],
             },
           },
           lineStyle: {
-            color: "#0f73ffe3",
+            color: "#ff0f0ff2",
             shadowBlur: 2,
             shadowOffsetX: 0,
             shadowOffsetY: 0,
-            shadowColor: "#0f73ffe3",
+            shadowColor: "#ff0f0fe3",
           },
         };
         series.push(_series);
       });
       this.chart.setOption({
+        animationEasingUpdate: "cubicInOut",
         grid: {
           top: 80,
           bottom: 20,

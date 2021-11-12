@@ -1,4 +1,4 @@
-$titleHeight: 8rem;
+$titleHeight: 80px;
 $gutter: 1rem; //各板块margin值
 #data-view {
   width: 100vw;
@@ -33,6 +33,12 @@ $gutter: 1rem; //各板块margin值
     .left-side-wrapper {
       .left-side-card.left-one {
         height: calc(10% - #{$gutter});
+      }
+      .left-side-card.left-two {
+        height: calc(30% - #{$gutter});
+      }
+      .left-side-card.left-three {
+        height: calc(60% - #{$gutter});
       }
       // border: 1px solid rgb(0, 140, 255);
     }

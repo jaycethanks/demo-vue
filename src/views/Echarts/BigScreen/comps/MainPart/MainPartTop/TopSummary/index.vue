@@ -1,15 +1,15 @@
 <template>
   <div class="top-summary-root-wrapper">
     <div class="top-summary-sub-wrapper flex justify-around items-center">
-      <div class="flex flex-col justify-around items-center" style="width:50%">
+      <div class="flex flex-col justify-around items-center" style="width: 50%">
         <div class="number-wrapper --fliper-box">
           {{ count1 }}
         </div>
-        <div class="description-field">全球运营表计数量</div>
+        <div class="description-field">全球运营表计实时数量</div>
       </div>
-      <div class="flex flex-col justify-around items-center" style="width:50%">
+      <div class="flex flex-col justify-around items-center" style="width: 50%">
         <div class="number-wrapper">{{ count2 }}</div>
-        <div class="description-field">远传表急在线数量</div>
+        <div class="description-field">远传表急实时在线数量</div>
       </div>
       <!-- <div></div> -->
     </div>
@@ -42,50 +42,46 @@ export default {
   right: 0;
   top: 0;
   // border: 1px solid #0f0;
-  background-color: #002ac483;
+  // background-color: #ff8f8f1f;
   .top-summary-sub-wrapper {
     height: auto;
     .number-wrapper {
       font-family: wgsFont;
-      // color: #ffe27a;
+      font-size: 48px;
+      line-height: 48px;
       // color: transparent;
-      letter-spacing: 1.5rem;
-      height: 7rem;
-      font-size: 7rem;
-      line-height: 7rem;
-      margin-top: 1.5rem;
-      padding: 0 0.2rem;
-      -webkit-text-stroke: 0.8rem;
+      // color: #000;
+      letter-spacing: 10px;
+      -webkit-text-stroke: 4px;
+      -webkit-background-clip: text;
       -webkit-text-stroke-color: transparent;
       background-image: linear-gradient(
         to right,
-        #ffe27a,
-        #ffc800,
-        #ffd53b,
-        #a58100
+        #ff7a7a,
+        #ff0000,
+        #ff3d3d,
+        #a30000
       );
-      filter: brightness(110%);
-      -webkit-background-clip: text;
+      filter: brightness(120%);
+      padding: 0 5px;
     }
     .description-field {
-      margin-top: 0.3rem;
-      margin-bottom: 1.5rem;
-      height: 3rem;
-      font-size: 3rem;
-      line-height: 3rem;
-      margin-top: 1.5rem;
-      // color: #ffd53b;
+      margin-top: 20px;
+      font-size: 24px;
+      line-height: 24px;
       color: transparent;
+      text-shadow: #ff8f8f5c 0 0 5px;
+      -webkit-text-stroke: 1px;
+      -webkit-background-clip: text;
+      -webkit-text-stroke-color: transparent;
+
       background-image: linear-gradient(
         to right,
-        #ffc800,
-        #fffb00,
-        #ffd53b,
-        #fffb00
+        #ff0000,
+        #ff3d3d,
+        #b80000,
+        #ff8f8f
       );
-      background-clip: text;
-      text-shadow: #ffc800b2 0 0 5px;
-      // line-height: 1.2rem;
     }
   }
 }
