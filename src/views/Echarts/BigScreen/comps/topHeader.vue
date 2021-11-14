@@ -92,7 +92,7 @@ export default {
       transform: translateX(-50%);
       position: absolute;
       margin: 0;
-      font-size: 2.3vw;
+      font-size: 46px;
       color: rgb(0, 0, 0);
       padding: 5px;
       // text-shadow: 0 0 5px $color, 0 0 10px $color, 0 0 20px $color,

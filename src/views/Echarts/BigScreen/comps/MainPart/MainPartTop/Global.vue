@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import resize from "../../../mixins/resize.js";
+// import resize from "../../../mixins/resize.js";
 //init inactive data source， 保存非活跃数据，避免re setOption 带来的不必要计算开销
 const coordsSet = [
   {
@@ -591,7 +591,7 @@ const selectStyle = {
   },
 };
 export default {
-  mixins: [resize],
+  // mixins: [resize],
   props: {
     className: {
       type: String,
@@ -615,11 +615,11 @@ export default {
     };
   },
   computed: {
-    xAxisData: function() {
+    xAxisData: function () {
       // 从props 中取出轴数据
       return this.dataSource.map((it) => it.time);
     },
-    seriesData: function() {
+    seriesData: function () {
       // 从props 中取出系列
       return this.dataSource.map((it) => it.volume);
     },
@@ -645,7 +645,7 @@ export default {
     let count = 0;
     // 视角平移
     !(function loop() {
-      setTimeout(function() {
+      setTimeout(function () {
         // logic here
         // recurse
         if (count < coordsSet.length) {

@@ -2,6 +2,7 @@
   <div id="data-view">
     <div class="back-ground-img"></div>
     <dv-full-screen-container>
+      <!-- <ShrinkComp> -->
       <top-header class="top-header" />
       <div class="main-content">
         <div class="left-side-wrapper side-wrapper">
@@ -35,9 +36,14 @@
             <dv-border-box-7
               :color="['#0e2d5b', '#3781c2']"
               class="dv-border-box-x"
-              style="display:flex;justify-content:center;align-items:center;position:relative"
+              style="
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+              "
             >
-              <MainPartTop />
+              <!-- <MainPartTop /> -->
             </dv-border-box-7>
           </section>
           <section class="center-btm-card">
@@ -77,6 +83,7 @@
           </div>
         </div>
       </div>
+      <!-- </ShrinkComp> -->
     </dv-full-screen-container>
   </div>
 </template>
@@ -94,12 +101,14 @@ import MainPartTop from "./comps/MainPart/MainPartTop/index.vue";
 import MainPartBtm from "./comps/MainPart/MainPartBtm.vue";
 import PiaChart from "./comps/Charts/PieChart.vue";
 import CssCarousel from "./comps/CssCarousel";
+import ShrinkComp from "./comps/ShrinkComp/ShrinkComp.vue";
 import "animate.css";
 import "flag-icon-css/css/flag-icon.css";
 
 export default {
   name: "DataView",
   components: {
+    ShrinkComp,
     topHeader,
     Global,
     LeftOne,

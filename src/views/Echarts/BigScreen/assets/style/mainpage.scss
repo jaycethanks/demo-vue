@@ -67,7 +67,7 @@ $gutter: 1rem; //各板块margin值
         // border: 1px solid gold;
         height: calc(60% - #{$gutter});
         width: calc(100% - #{$gutter});
-        /deep/.border-box-content {
+        .border-box-content {
           // datav 的内部样式
           display: flex;
           justify-content: center;
