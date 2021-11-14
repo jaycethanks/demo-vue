@@ -5,6 +5,7 @@
 <script>
 // import resize from "../../../mixins/resize.js";
 //init inactive data source， 保存非活跃数据，避免re setOption 带来的不必要计算开销
+let chart = null;
 const coordsSet = [
   {
     coords: [
@@ -609,7 +610,7 @@ export default {
   },
   data() {
     return {
-      chart: null,
+      // chart: null,
       center: [120.153576, 30.287459],
       zoom: 1.5,
     };
@@ -639,7 +640,7 @@ export default {
   },
 
   mounted() {
-    this.chart = this.$echarts.init(this.$el, "macarons");
+    chart = this.$echarts.init(this.$el, "macarons");
     this.drawChart();
     let _this = this;
     let count = 0;
@@ -650,7 +651,7 @@ export default {
         // recurse
         if (count < coordsSet.length) {
           _this.center = coordsSet[count].coords[1];
-          _this.chart.dispatchAction({
+          chart.dispatchAction({
             type: "geoSelect",
             name: coordsSet[count].toName,
           });
@@ -682,7 +683,7 @@ export default {
     //       zoomOut.then(() => {
     //         setTimeout(() => {
     //           _this.center = coordsSet[count].coords[1];
-    //           _this.chart.dispatchAction({
+    //           chart.dispatchAction({
     //             type: "geoSelect",
     //             name: coordsSet[count].toName,
     //           });
@@ -702,16 +703,16 @@ export default {
     // })();
   },
   beforeDestroy() {
-    if (!this.chart) {
+    if (!chart) {
       return;
     }
-    this.chart.dispose();
-    this.chart = null;
+    chart.dispose();
+    chart = null;
   },
   methods: {
     drawChart() {
       let _this = this;
-      this.chart.setOption({
+      chart.setOption({
         animationDurationUpdate: 5000, //每次图形变换的动画时长，应当以最小的变化间隔为准
         animationEasingUpdate: "cubicInOut",
         geo: {
@@ -817,7 +818,7 @@ export default {
       // window.addEventListener("resize", _this.resize()); //这个不加也可以，但是加了在resize的时候更加流畅
     },
     // resize() {
-    //   this.chart.resize({
+    //   chart.resize({
     //     //https://echarts.apache.org/zh/api.html#echartsInstance.resize
     //     //注意，将在每次查询时被执行
     //     width: "auto", //自动获取dom宽度

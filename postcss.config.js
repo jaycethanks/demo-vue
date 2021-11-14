@@ -1,5 +1,6 @@
 module.exports = {
   plugins: {
+    // ...
     "postcss-px-to-viewport": {
       // options
       unitToConvert: "px",
@@ -12,7 +13,8 @@ module.exports = {
       minPixelValue: 1,
       mediaQuery: false,
       replace: true,
-      exclude: [],
+      exclude: undefined,
+      include: /\/src\/views\/Echarts\//,
       landscape: false,
       landscapeUnit: "vw",
       landscapeWidth: 568,

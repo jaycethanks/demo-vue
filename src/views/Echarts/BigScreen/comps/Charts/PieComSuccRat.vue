@@ -4,7 +4,7 @@
 
 <script>
 // import resize from "@/views/dashboard/mixins/resize";
-
+let chart = null;
 export default {
   // mixins: [resize],
   props: {
@@ -24,7 +24,7 @@ export default {
   },
   data() {
     return {
-      chart: null,
+      // chart: null,
     };
   },
   computed: {
@@ -47,15 +47,15 @@ export default {
     },
   },
   mounted() {
-    this.chart = this.$echarts.init(this.$el, "macarons");
+    chart = this.$echarts.init(this.$el, "macarons");
     this.drawChart();
   },
   beforeDestroy() {
-    if (!this.chart) {
+    if (!chart) {
       return;
     }
-    this.chart.dispose();
-    this.chart = null;
+    chart.dispose();
+    chart = null;
   },
   methods: {
     drawChart() {
@@ -109,12 +109,14 @@ export default {
                     {
                       offset: 0,
                       // color: "#1d54f7",
-                      color: ["#fdcb58", "#fd5858", "#8c87f2"][index],
+                      // color: ["#fdcb58", "#fd5858", "#8c87f2"][index],
+                      color: ["#5778ff", "#40f7c9", "#8acaff"][index],
                     },
                     {
                       offset: 1,
                       // color: "#68eaf9",
-                      color: ["#ff810a", "#ff0aeb", "#4405ff"][index],
+                      // color: ["#ff810a", "#ff0aeb", "#4405ff"][index],
+                      color: ["#476cff73", "#54f8cf80", "#85c8ff8a"][index],
                     },
                   ],
                 },
@@ -123,12 +125,14 @@ export default {
                     {
                       offset: 0,
                       // color: "#1d54f7",
-                      color: ["#fdcb58", "#fd5858", "#8c87f2"][index],
+                      // color: ["#fdcb58", "#fd5858", "#8c87f2"][index],
+                      color: ["#0033ff", "#09f1b8", "#40a9ff"][index],
                     },
                     {
                       offset: 1,
                       // color: "#68eaf9"
-                      color: ["#ff810a", "#ff0aeb", "#4405ff"][index],
+                      // color: ["#ff810a", "#ff0aeb", "#4405ff"][index],
+                      color: ["#0033ff91", "#09f1b785", "#42aaff8a"][index],
                     },
                   ],
                 },
@@ -142,7 +146,8 @@ export default {
                 textStyle: {
                   fontSize: "16",
                   fontWeight: "bold",
-                  color: ["#fdcb58", "#fd5858", "#8c87f2"][index],
+                  // color: ["#fdcb58", "#fd5858", "#8c87f2"][index],
+                  color: ["#0033ff", "#09f1b8", "#40a9ff"][index],
                 },
                 position: "center",
               },
@@ -160,7 +165,7 @@ export default {
           ],
         });
       });
-      this.chart.setOption({
+      chart.setOption({
         grid: {
           left: "5%",
           right: "2%",
@@ -177,7 +182,7 @@ export default {
       window.addEventListener("resize", _this.resize()); //这个不加也可以，但是加了在resize的时候更加流畅
     },
     resize() {
-      this.chart.resize({
+      chart.resize({
         //https://echarts.apache.org/zh/api.html#echartsInstance.resize
         //注意，将在每次查询时被执行
         width: "auto", //自动获取dom宽度

@@ -2,7 +2,7 @@
   <div class="component-root-wrapper flex justify-around items-center">
     <div class="simple-summary flex flex-col justify-center items-center">
       <div class="field-label">已入库表计数</div>
-      <div class="field-value">45960</div>
+      <div class="field-value">{{ val1 }}</div>
     </div>
     <div class="simple-summary flex flex-col justify-center items-center">
       <div class="field-label">上月开户数</div>
@@ -18,11 +18,23 @@
 export default {
   components: {},
   data() {
-    return {};
+    return {
+      val1: 45960,
+    };
+  },
+  mounted() {
+    let _this = this;
+    !(function loop() {
+      setTimeout(() => {
+        _this.val1 = _this.val1 + Number((Math.random() * 100).toFixed(0));
+        loop();
+      }, 2000);
+    })();
   },
 };
 </script>
 <style lang="scss" scoped>
+@import "../../assets/style/_variables.scss";
 // @font-face {
 //   font-family: "wgsFont";
 //   src: url("../../assets/fonts/open_24_display_st-webfont.eot"); /* IE9 Compat Modes */
