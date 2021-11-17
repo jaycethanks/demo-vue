@@ -2,7 +2,7 @@
   <div id="data-view">
     <div class="back-ground-img"></div>
     <dv-full-screen-container>
-      <topHeader class="top-header" />
+      <TopHeader class="top-header" />
       <div class="main-content">
         <div class="left-side-wrapper side-wrapper">
           <div class="left-side-card left-one">
@@ -87,7 +87,7 @@
 </template>
 
 <script>
-import topHeader from "./comps/TopHeader/";
+import TopHeader from "./comps/TopHeader/";
 import Global from "./comps/MainPart/MainPartTop/Global.vue";
 import LeftOne from "./comps/LeftPart/LeftOne.vue";
 import LeftTwo from "./comps/LeftPart/LeftTwo.vue";
@@ -106,7 +106,7 @@ import "flag-icon-css/css/flag-icon.css";
 export default {
   name: "DataView",
   components: {
-    topHeader,
+    TopHeader,
     Global,
     LeftOne,
     LeftTwo,

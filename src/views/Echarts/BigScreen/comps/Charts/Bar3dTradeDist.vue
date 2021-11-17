@@ -258,7 +258,7 @@ export default {
                 colorStops: [
                   {
                     offset: 1,
-                    color: "#1d53f7c4",
+                    color: "#0064fa",
                   },
                   {
                     offset: 0,

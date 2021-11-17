@@ -50,6 +50,7 @@ export default {
   mounted() {
     chart = this.$echarts.init(this.$el, "macarons");
     this.drawChart();
+    return;
     let _this = this;
     !(function loop() {
       setTimeout(() => {

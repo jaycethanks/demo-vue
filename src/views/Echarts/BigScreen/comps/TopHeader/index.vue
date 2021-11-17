@@ -2,9 +2,17 @@
   <!-- <dv-decoration-8 class="header-left-decoration" />
     <dv-decoration-5 class="header-center-decoration" />
     <dv-decoration-8 class="header-right-decoration" :reverse="true" /> -->
-  <!-- <div class="header-decoration"></div> -->
   <div class="header-root-wrapper flex justify-between items-center">
-    <div class="title-wrapper flex flex-col justify-center items-start">
+    <div class="clock-wrapper">
+      <dv-border-box-7 :color="['#0e2d5b', '#3781c2']" class="dv-border-box-7">
+        <div style="height: 100%" class="flex justify-center items-center">
+          {{ date }}
+          <!-- <br /> -->
+          {{ time }}
+        </div>
+      </dv-border-box-7>
+    </div>
+    <div class="title-wrapper flex flex-col justify-center items-center">
       <div class="main-title">
         <span>莱宸系统运营展示</span>
       </div>
@@ -46,10 +54,75 @@ export default {
     TopSummary,
     MarqueeText,
   },
+  data() {
+    return {
+      time: "",
+      date: "",
+    };
+  },
+  mounted() {
+    let _this = this;
+    !(function loop() {
+      setTimeout(function () {
+        let temp = new Date();
+        let dateArr = temp.toLocaleDateString().split("/");
+        _this.date = [
+          dateArr[0],
+          "年",
+          dateArr[1],
+          "月",
+          dateArr[2],
+          "日",
+        ].join("");
+        _this.time = temp.toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: false,
+        });
+        loop();
+      }, 1000);
+    })();
+  },
 };
 </script>
+<style lang='scss'>
+$gutter: 1rem; //各板块margin值
+.header-root-wrapper {
+  .clock-wrapper {
+    width: calc(20vw - #{$gutter});
+    height: inherit;
+    margin-left: $gutter;
+    .dv-border-box-7 {
+      .border-box-content {
+        position: unset; //这里不知道为什么，组件默认的是relative ,但是会导致发光字效果失效
+      }
+      padding: 5px;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
 
-<style lang="scss">
+      font-family: wgsFont;
+      font-size: 30px;
+      line-height: 30px;
+      // color: rgb(255, 255, 255);
+      letter-spacing: 0.2em;
+      -webkit-text-stroke: 4px;
+      -webkit-background-clip: text;
+      -webkit-text-stroke-color: transparent;
+      background-image: linear-gradient(
+        to right,
+        #2eeaff,
+        #1499ff,
+        #2eeaff,
+        #1499ff
+      );
+      filter: brightness(120%);
+    }
+  }
+}
+</style>
+<style lang="scss" >
 .header-decoration {
   width: 640px;
   height: 60px;
@@ -64,74 +137,28 @@ export default {
 }
 
 .header-root-wrapper {
-  $mainTitleFontSize: 42px;
-  $subtitleFontSize: 24px;
-  // -webkit-clip-path: polygon(
-  //   0 0,
-  //   100% 0,
-  //   90% 100%,
-  //   88% 100%,
-  //   88% 91%,
-  //   12% 88%,
-  //   12% 100%,
-  //   10% 100%
-  // );
-  // clip-path: polygon(
-  //   0 0,
-  //   100% 0,
-  //   90% 100%,
-  //   88% 100%,
-  //   88% 91%,
-  //   12% 88%,
-  //   12% 100%,
-  //   10% 100%
-  // );
-  // width: 40%;
+  $mainTitleFontSize: 44px;
+  $subtitleFontSize: 16px;
   width: inherit;
-  height: inherit;
-  // border: 1px solid #0f0;
-  // background: #0f0;
-  // background: -webkit-radial-gradient(
-  //   circle farthest-side at center center,
-  //   #000000 26%,
-  //   #65a4d7 100%
-  // );
-  // background: -moz-radial-gradient(
-  //   circle farthest-side at center center,
-  //   #000000 26%,
-  //   #65a4d7 100%
-  // );
-  // background: radial-gradient(
-  //   circle farthest-side at center center,
-  //   #000000 26%,
-  //   #65a4d7 100%
-  // );
-
-  .decoration-start,
-  .decoration-end {
-    width: 20px;
-    height: 100%;
-    background-color: #00f;
-  }
-  .decoration-start {
-  }
-  .decoration-end {
-  }
+  // height: inherit;
   .marquee-text {
     font-size: 36px;
     color: #ffffff;
   }
+
   .title-wrapper {
     $color: #004cff;
+    // height: inherit;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
     white-space: nowrap;
-    // border: 1px solid red;
     margin: 0;
+    font-weight: 800;
+    letter-spacing: 0.5em;
     color: rgb(0, 0, 0);
-    padding: 5px;
-    // text-shadow: 0 0 5px $color, 0 0 10px $color, 0 0 20px $color,
-    //   0 0 40px $color, 0 0 80px $color, 0 0 90px $color, 0 0 100px $color,
-    //   0 0 150px $color;
-    -webkit-text-stroke: 5px;
+    -webkit-text-stroke: 6px;
     -webkit-text-stroke-color: transparent;
     -webkit-background-clip: text;
 
@@ -143,24 +170,24 @@ export default {
       #40a9ff
     );
     filter: brightness(110%);
-    font-weight: 800;
-    letter-spacing: 0.3em;
-    span {
-      margin-left: 10px;
-    }
     .main-title {
       font-size: $mainTitleFontSize;
     }
     .sub-title {
       font-size: $subtitleFontSize;
+      -webkit-text-stroke: 4px;
+      -webkit-text-stroke-color: transparent;
+      -webkit-background-clip: text;
       font-style: italic;
     }
   }
   .summary-wrapper {
-    position: relative;
+    position: absolute;
+    right: 0;
+    top: 0;
     // border: 1px solid blue;
     width: calc(20vw - 14px); //gutter:14px
-    height: 100%;
+    height: inherit;
   }
 }
 </style>

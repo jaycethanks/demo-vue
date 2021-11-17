@@ -1,6 +1,6 @@
 <template>
   <div class="component-root-wrapper">
-    <TopSummary />
+    <!-- <TopSummary /> -->
     <Global style="height: 100%; width: 100%" @change="onWorldMapChange" />
     <TransitionWrapper ref="TransitionWrapper" />
   </div>

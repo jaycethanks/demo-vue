@@ -591,6 +591,7 @@ const selectStyle = {
     position: ["45%", "50%"],
   },
 };
+let animationDurationUpdate = 2500; //默认动画时长
 export default {
   mixins: [resize],
   props: {
@@ -642,65 +643,8 @@ export default {
   mounted() {
     chart = this.$echarts.init(this.$el, "macarons");
     this.drawChart();
-    let _this = this;
-    let count = 0;
-    // 视角平移
-    !(function loop() {
-      setTimeout(function () {
-        // logic here
-        // recurse
-        if (count < coordsSet.length) {
-          _this.center = coordsSet[count].coords[1];
-          chart.dispatchAction({
-            type: "geoSelect",
-            name: coordsSet[count].toName,
-          });
-          _this.zoom = 4;
-          _this.$emit("change", coordsSet[count].toName);
-          _this.drawChart();
-          count++;
-        } else {
-          count = 0;
-        }
-        loop();
-      }, 5000);
-    })();
-
-    // 场景漫游
-    // !(function loop() {
-    //   setTimeout(function() {
-    //     // logic here
-    //     // recurse
-    //     if (count < coordsSet.length) {
-    //       let zoomOut = new Promise((resolve, reject) => {
-    //         setTimeout(() => {
-    //           _this.zoom = 1;
-    //           _this.drawChart();
-    //           // console.log("zoom out", "--line644");
-    //           resolve();
-    //         }, 1500);
-    //       });
-    //       zoomOut.then(() => {
-    //         setTimeout(() => {
-    //           _this.center = coordsSet[count].coords[1];
-    //           chart.dispatchAction({
-    //             type: "geoSelect",
-    //             name: coordsSet[count].toName,
-    //           });
-    //           _this.zoom = 4;
-    //           // _this.$emit("change", coordsSet[count].toName);
-
-    //           _this.drawChart();
-    //           // console.log("zoom in", "--line644");
-    //         }, 5000);
-    //       });
-    //       count++;
-    //     } else {
-    //       count = 0;
-    //     }
-    //     loop();
-    //   }, 4000); //4000 - 1500 - 2000 = 停留时长
-    // })();
+    this.carousel("translation");
+    // this.carousel("wandering");
   },
   beforeDestroy() {
     if (!chart) {
@@ -713,7 +657,7 @@ export default {
     drawChart() {
       let _this = this;
       chart.setOption({
-        animationDurationUpdate: 5000, //每次图形变换的动画时长，应当以最小的变化间隔为准
+        animationDurationUpdate: animationDurationUpdate, //每次图形变换的动画时长，应当以最小的变化间隔为准
         animationEasingUpdate: "cubicInOut",
         geo: {
           // world map
@@ -830,6 +774,81 @@ export default {
     //     //由于组件时层级嵌套的，外层容器高度由内层撑开。 所以要想动态生成高度，只能去获取一个动态计算出的高度，如viewport的高度（动态）
     //   });
     // },
+    carousel(type) {
+      let _this = this;
+      let count = 0;
+      let zoomIn = 6; //放大 （如果是‘平移’，则是默认的放大层级）
+      let zoomOut = 2;
+
+      // translation 单独配置
+      let AnimateDuration = 5000;
+      let AnimateWait = 1000;
+      // wandering 单独配置
+      let drillUpDur = 2000; //上浮的时长，也就是地图缩小到世界地图的时长
+      let drillDownDur = 2000; //下钻的时长，也就是放大并移动视图中心ZoomIn + center
+      let carouselWait = 3000; //轮播停留的时长;
+      let carouselPeriod = drillUpDur + drillDownDur + carouselWait; //动画周期的时长, 也就是定时器轮播的间隔时长
+
+      if (type === "translation") {
+        translation();
+      } else {
+        wandering();
+      }
+      function translation() {
+        // 视角平移 Only
+        !(function loop() {
+          setTimeout(function () {
+            // logic here
+            // recurse
+            if (count < coordsSet.length) {
+              _this.center = coordsSet[count].coords[1];
+              chart.dispatchAction({
+                type: "geoSelect",
+                name: coordsSet[count].toName,
+              });
+              _this.zoom = zoomIn;
+              _this.$emit("change", coordsSet[count].toName);
+              animationDurationUpdate = AnimateDuration;
+              _this.drawChart();
+              count++;
+            } else {
+              count = 0;
+            }
+            loop();
+          }, AnimateDuration + AnimateWait);
+        })();
+      }
+      function wandering() {
+        // 场景漫游 Zoom + Move
+        !(function loop() {
+          setTimeout(function () {
+            // logic here
+            // recurse
+            if (count < coordsSet.length) {
+              _this.zoom = zoomOut;
+              animationDurationUpdate = drillUpDur;
+              _this.drawChart();
+              setTimeout(() => {
+                _this.center = coordsSet[count].coords[1];
+                chart.dispatchAction({
+                  //高亮
+                  type: "geoSelect",
+                  name: coordsSet[count].toName,
+                });
+                _this.zoom = zoomIn;
+
+                animationDurationUpdate = drillDownDur;
+                _this.drawChart();
+              }, drillDownDur);
+              count++;
+            } else {
+              count = 0;
+            }
+            loop();
+          }, carouselPeriod); //4000 - 1500 - 2000 = 停留时长
+        })();
+      }
+    },
   },
 };
 </script>
