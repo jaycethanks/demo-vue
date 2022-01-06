@@ -168,12 +168,12 @@ export default {
 </script>
 
 <style>
-#nav {
+/* #nav {
   display: none !important;
 }
 .resizable-component.drag-area {
   display: none !important;
-}
+} */
 </style>
 <style>
 html {
@@ -193,7 +193,7 @@ html {
       url("./assets/fonts/open_24_display_st-webfont.svg") format("svg"); /* Legacy iOS */
 }
 </style>
-<style lang="scss" >
+<style lang="scss">
 @import "./assets/style/mainpage.scss";
 @import "./assets/style/tailwind_flex_snippet.scss";
 

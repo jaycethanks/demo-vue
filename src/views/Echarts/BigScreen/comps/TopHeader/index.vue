@@ -61,9 +61,10 @@ export default {
     };
   },
   mounted() {
+    console.log("123124", "--line64");
     let _this = this;
     !(function loop() {
-      setTimeout(function () {
+      setTimeout(function() {
         let temp = new Date();
         let dateArr = temp.toLocaleDateString().split("/");
         _this.date = [
@@ -86,7 +87,7 @@ export default {
   },
 };
 </script>
-<style lang='scss'>
+<style lang="scss">
 $gutter: 1rem; //各板块margin值
 .header-root-wrapper {
   .clock-wrapper {
@@ -122,7 +123,7 @@ $gutter: 1rem; //各板块margin值
   }
 }
 </style>
-<style lang="scss" >
+<style lang="scss">
 .header-decoration {
   width: 640px;
   height: 60px;

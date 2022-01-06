@@ -19,7 +19,6 @@ import "ant-design-vue/dist/antd.css"; // or 'ant-design-vue/dist/antd.less'
 // import 'ant-design-vue/dist/antd.css'; // or 'ant-design-vue/dist/antd.less'
 
 import dataV from "@jiaminghi/data-view";
-
 Vue.use(dataV);
 
 Vue.prototype.$axios = Axios;
@@ -186,7 +185,7 @@ import "echarts-gl/src/chart/bar3D";
 echarts.registerMap("worldmap", { geoJSON: worldGeo });
 Vue.prototype.$echarts = echarts;
 
-new Vue({
+let a = new Vue({
   data() {
     return {
       name: "$root",

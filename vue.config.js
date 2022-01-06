@@ -26,7 +26,7 @@ module.exports = {
         }
       }, */
       "/api": {
-        target: "http://192.168.0.233:9580", // 请求本地 需要jeecg-boot后台项目
+        target: "http://127.0.0.1:12345", // 请求本地 需要jeecg-boot后台项目
         ws: false,
         changeOrigin: true,
         pathRewrite: {
