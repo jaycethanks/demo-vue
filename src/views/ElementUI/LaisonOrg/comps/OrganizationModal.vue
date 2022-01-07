@@ -13,17 +13,23 @@
         shadow="never"
         :body-style="{
           maxHeight: '600px',
+          padding: '10px',
         }"
       >
-        <el-tag
-          v-for="tag in tags"
-          :key="tag.name"
+        <span v-for="(item, index) in tags" :key="index">
+          <!-- prettier-ignore -->
+          <el-tag
+          v-for="(tag, _index) in item.taglist"
+          :key="_index"
           closable
-          :type="tag.type"
+          :type="item.type === 'dept' ? 'success' : item.type === 'role' ? 'warning' : item.type === 'person' ? 'info' : 'error'"
           :style="{ margin: tagMargin }"
+          @close="handleTagClose(tag)"
         >
-          {{ tag.name }}
+          <!-- {{ tag.item[tree.filterTargetField] }} -->
+          {{tag[item.type === 'dept' ? 'title' : item.type === 'role' ? 'name' : 'realname']}}
         </el-tag>
+        </span>
       </el-card>
 
       <el-card
@@ -63,7 +69,9 @@
             :props="tree.dynamicProps"
             :data="tree.nodes"
             show-checkbox
+            default-expand-all
             :icon-class="tree.nodeIcon"
+            node-key="id"
           >
           </el-tree>
         </div>
@@ -74,7 +82,7 @@
     </div>
     <span slot="footer" class="dialog-footer">
       <el-button @click="handleClose">取 消</el-button>
-      <el-button type="primary" @click="handleClose">确 定</el-button>
+      <el-button type="primary" @click="handleOk">确 定</el-button>
     </span>
   </el-dialog>
 </template>
@@ -132,6 +140,7 @@ export default {
         nodeIcon: "",
         // tree Start
         nodes: [],
+        defaultExpandedKeys: [],
         dynamicProps: {
           children: "children",
           label: (data, node) => {
@@ -139,17 +148,15 @@ export default {
           },
         },
         data: {
-          dept: [],
-          role: [],
-          member: [],
+          dept: { src: [], checkedlist: [] },
+          role: { src: [], checkedlist: [] },
+          person: { src: [], checkedlist: [] },
         },
       },
       tags: [
-        { name: "标签一标签一", type: "" },
-        { name: "标签二", type: "success" },
-        { name: "标签三标签一标签一", type: "info" },
-        { name: "标签四标签", type: "warning" },
-        { name: "标签五标", type: "danger" },
+        { type: "dept", taglist: [] },
+        { type: "role", taglist: [] },
+        { type: "person", taglist: [] },
       ],
     };
   },
@@ -167,21 +174,28 @@ export default {
     async loadData() {
       // mock axios
       // prettier-ignore
-      this.tree.data.dept = mockdept.data;
+      this.tree.data.dept.src = mockdept.data;
       // prettier-ignore
-      this.tree.data.role = mockrole.data;
+      this.tree.data.role.src = mockrole.data;
       // prettier-ignore
-      this.tree.data.person = mockmember.data;
+      this.tree.data.person.src = mockmember.data;
+      this.init();
       this.setType();
     },
     handleClose(done) {
       this.$emit("cusEvent", false);
     },
+    handleOk() {},
+    init() {
+      this.radio = "dept";
+      this.tree.nodes = this.tree.data.dept.src;
+      this.setFilterTargetField("title");
+    },
     setType() {
       // 定义最后选中的项的type, 用于radio 切换时的回显标识
-      this.tree.data.dept.type = "4";
-      this.tree.data.role.type = "2";
-      this.tree.data.person.type = "1";
+      this.tree.data.dept.src.type = "4";
+      this.tree.data.role.src.type = "2";
+      this.tree.data.person.src.type = "1";
     },
     setFilterTargetField(label) {
       this.tree.filterTargetField = label;
@@ -193,27 +207,11 @@ export default {
      * */
 
     onRadioChange(e) {
-      //TODO fix role tab 下icon 不显示问题 +》 已知是数据问题导致
-      this.tree.nodes = [];
-      switch (e) {
-        case "dept": {
-          this.tree.nodes = this.tree.data.dept;
-          this.setFilterTargetField("title");
-          break;
-        }
-        case "role": {
-          this.tree.nodes = this.tree.data.role;
-          this.setFilterTargetField("name");
-
-          break;
-        }
-        case "person": {
-          this.tree.nodes = this.tree.data.person;
-          this.setFilterTargetField("realname");
-          // this.tree.nodeIcon = "el-icon-star-on";
-          break;
-        }
-      }
+      let label = e === "dept" ? "title" : e === "role" ? "name" : "realname";
+      this.setFilterTargetField(label); // set label
+      this.tree.nodes = this.tree.data[e].src; // set current tree nodes
+      this.setCheckedNodes(this.tree.data[e].checkedlist); //回显当前tree 选中状态
+      this.$forceUpdate();
     },
     /**
      *
@@ -234,14 +232,72 @@ export default {
     },
     handleNodeCheck(currentNode, nodeStatus) {
       //nodeStatus : checkedNodes、checkedKeys、halfCheckedNodes、halfCheckedKeys
-      this.tags = nodeStatus.checkedNodes;
-      //TODO 选中节点，到tags池
-      console.log(nodeStatus, "--line237");
+      // prettier-ignore
+      this.tree.data[this.radio].checkedlist = this.getCheckedNodes(); //更新checklist
+      // this.tree.data[this.radio].checkedlist = nodeStatus.checkedNodes; //更新checklist
+      let tag = this.tags.find((it) => it.type === this.radio);
+      tag.taglist = nodeStatus.checkedNodes; //更新taglist
+    },
+    setCheckedNodes(arr) {
+      debugger;
+      this.$refs.tree.setCheckedNodes(arr);
+
+      // this.tree.defaultExpandedKeys = arr.map((it) => {
+      //   return { id: it.id };
+      // });
+    },
+    getCheckedNodes() {
+      return this.$refs.tree.getCheckedNodes();
+    },
+    removeCheckedNode(targetTag) {
+      /** 删除某个节点时有一些规则：*/
+      /** 1.如果删除父节点，则删除该节点下的所有子节点 */
+      if (!targetTag.item.isLeaf) {
+        let currentNodes = this.getCheckedNodes(); //获取当前所有checked节点
+        let index = currentNodes.findIndex((it) => it.id === targetTag.item.id); //先找到当前节点，并删除
+        index != -1 && currentNodes.splice(index, 1);
+        targetTag.item.children.forEach((subitem) => {
+          // 对于每个子节点， 找到其在currentNode 中的位置，并删除
+          let index = currentNodes.findIndex((it) => it.id === subitem.id); //找到当前节点，并删除
+          index != -1 && currentNodes.splice(index, 1);
+          // 删除对应的tags
+          let tagIndex = this.tags.findIndex((it) => it.item.id === subitem.id);
+          tagIndex != -1 && this.tags.splice(tagIndex, 1);
+        });
+
+        this.setCheckedNodes(currentNodes);
+        return;
+      }
+
+      /** 2.删除某个子节点时， 父节点需要一并删除,否则删不掉 */
+      let currentNodes = this.getCheckedNodes(); //获取当前所有checked节点
+      let index = currentNodes.findIndex((it) => it.id === targetTag.item.id); //找到当前节点，并删除
+      index != -1 && currentNodes.splice(index, 1);
+      // prettier-ignore
+      let fatherNodeIndex = currentNodes.findIndex((it) => it.id === targetTag.item.parentId); //找到父节点，并删除
+      fatherNodeIndex != -1 && currentNodes.splice(fatherNodeIndex, 1);
+
+      // prettier-ignore
+      let tagIndex = this.tags.findIndex((it) => it.item.id === targetTag.item.parentId); // 删除父节点tag
+      tagIndex != -1 && this.tags.splice(tagIndex, 1);
+      this.setCheckedNodes(currentNodes);
     },
 
     /**
      *
      * Tree Component Methods END
+     *
+     * */
+
+    handleTagClose(targetTag) {
+      let index = this.tags.findIndex((it) => it.item.id === targetTag.item.id);
+      index != -1 && this.tags.splice(index, 1); // 删除当前tag
+      this.removeCheckedNode(targetTag);
+    },
+
+    /**
+     *
+     * Tag Components Methods END
      *
      * */
 
