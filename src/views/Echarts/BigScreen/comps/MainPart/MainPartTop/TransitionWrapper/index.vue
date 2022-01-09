@@ -8,7 +8,7 @@
         <dv-border-box-13
           :reverse="true"
           :color="['rgb(80, 224, 247)']"
-          style="padding:1rem"
+          style="padding: 1rem"
           :background-color="'rgba(56, 228, 255, 0.2)'"
         >
           <div class="transition-innner-wrapper flex justify-between">
@@ -35,7 +35,7 @@
       <div v-if="toggle" class="transition-boxs flag-left-side-box2">
         <dv-border-box-8
           :color="['rgba(80, 224, 247, 0.56)', 'rgba(80, 224, 247, 0.64)']"
-          style="padding:1rem"
+          style="padding: 1rem"
           :background-color="'rgba(56, 228, 255, 0.13)'"
           ><span class="text-field"
             >XXXXXXXXXXXXXXXXXXXXXX</span
@@ -51,7 +51,7 @@
       <div v-if="toggle" class="transition-boxs flag-left-side-box3">
         <dv-border-box-8
           :color="['rgba(80, 224, 247, 0.56)', 'rgba(80, 224, 247, 0.64)']"
-          style="padding:1rem"
+          style="padding: 1rem"
           :background-color="'rgba(56, 228, 255, 0.13)'"
           ><span class="text-field"
             >XXXXXXXXXXXXXXXXXXXXXX</span
@@ -67,7 +67,7 @@
       <div v-if="toggle" class="transition-boxs flag-left-side-box4">
         <dv-border-box-8
           :color="['rgba(80, 224, 247, 0.56)', 'rgba(80, 224, 247, 0.64)']"
-          style="padding:1rem"
+          style="padding: 1rem"
           :background-color="'rgba(56, 228, 255, 0.13)'"
           ><span class="text-field"
             >XXXXXXXXXXXXXXXXXXXXXX</span
@@ -82,7 +82,7 @@
       <div v-if="toggle" class="transition-boxs flag-left-side-box5">
         <dv-border-box-8
           :color="['rgba(80, 224, 247, 0.56)', 'rgba(80, 224, 247, 0.64)']"
-          style="padding:1rem"
+          style="padding: 1rem"
           :background-color="'rgba(56, 228, 255, 0.13)'"
           ><span class="text-field"
             >XXXXXXXXXXXXXXXXXXXXXX</span
@@ -98,7 +98,7 @@
       <div v-if="toggle" class="transition-boxs-right tran-right-side-1">
         <dv-border-box-5
           :color="['rgba(80, 224, 247, 0.56)', 'rgba(80, 224, 247, 0.64)']"
-          style="padding:2rem"
+          style="padding: 2rem"
           :background-color="'rgba(56, 228, 255, 0.13)'"
           :reverse="true"
         >
@@ -288,7 +288,7 @@ export default {
       console.log(this.regionName, "--line381");
       setTimeout(() => {
         this.toggle = false;
-      }, 4000);
+      }, 15000);
     },
   },
 };

@@ -38,7 +38,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -74,18 +74,18 @@ export default {
 }
 
 .flex {
-  display: flex;
+  display: flex !important;
 }
 .justify-center {
-  justify-content: center;
+  justify-content: center !important;
 }
 .align-center {
-  align-items: center;
+  align-items: center !important;
 }
 .flex-column {
-  flex-direction: column;
+  flex-direction: column !important;
 }
 .flex-row {
-  flex-direction: row;
+  flex-direction: row !important;
 }
 </style>

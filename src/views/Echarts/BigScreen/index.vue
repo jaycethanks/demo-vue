@@ -2,7 +2,7 @@
   <div id="data-view">
     <div class="back-ground-img"></div>
     <dv-full-screen-container>
-      <topHeader class="top-header" />
+      <TopHeader class="top-header" />
       <div class="main-content">
         <div class="left-side-wrapper side-wrapper">
           <div class="left-side-card left-one">
@@ -87,7 +87,7 @@
 </template>
 
 <script>
-import topHeader from "./comps/TopHeader/";
+import TopHeader from "./comps/TopHeader/";
 import Global from "./comps/MainPart/MainPartTop/Global.vue";
 import LeftOne from "./comps/LeftPart/LeftOne.vue";
 import LeftTwo from "./comps/LeftPart/LeftTwo.vue";
@@ -106,7 +106,7 @@ import "flag-icon-css/css/flag-icon.css";
 export default {
   name: "DataView",
   components: {
-    topHeader,
+    TopHeader,
     Global,
     LeftOne,
     LeftTwo,
@@ -168,12 +168,12 @@ export default {
 </script>
 
 <style>
-#nav {
+/* #nav {
   display: none !important;
 }
 .resizable-component.drag-area {
   display: none !important;
-}
+} */
 </style>
 <style>
 html {
@@ -193,7 +193,7 @@ html {
       url("./assets/fonts/open_24_display_st-webfont.svg") format("svg"); /* Legacy iOS */
 }
 </style>
-<style lang="scss" >
+<style lang="scss">
 @import "./assets/style/mainpage.scss";
 @import "./assets/style/tailwind_flex_snippet.scss";
 
