@@ -12,8 +12,9 @@
         class="box-card"
         shadow="never"
         :body-style="{
-          maxHeight: '600px',
           padding: '10px',
+          maxHeight: '15vh',
+          overflowY: 'auto',
         }"
       >
         <span v-for="(item, index) in tags" :key="index">
@@ -21,6 +22,7 @@
           <el-tag
           v-for="(tag, _index) in item.taglist"
           :key="_index"
+          :size="elementSize"
           closable
           :type="item.type === 'dept' ? 'success' : item.type === 'role' ? 'warning' : item.type === 'person' ? 'info' : 'error'"
           :style="{ margin: tagMargin }"
@@ -31,11 +33,12 @@
         </el-tag>
         </span>
       </el-card>
+      <!-- ********************************************** Top Card End ********************************************** -->
 
       <el-card
         class="box-card"
         shadow="never"
-        :body-style="{ minHeight: '500px', paddingTop: '20px' }"
+        :body-style="{ padding: '10px' }"
       >
         <div
           style="display:flex;justify-content:space-between;align-items:center"
@@ -59,7 +62,7 @@
           </el-input>
         </div>
 
-        <div style="margin-top: 20px;overflow-y:auto;max-height: 600px;">
+        <div style="margin: 10px;overflow-y:auto;max-height: 38vh;">
           <el-tree
             @node-expand="nodeExpand"
             @node-collapse="nodeCollapse"
@@ -76,13 +79,14 @@
           </el-tree>
         </div>
       </el-card>
-      <!-- Left Side Card End -->
 
-      <!-- Right Side Card End -->
+      <!--  ********************************************** Bottom Card End  **********************************************-->
     </div>
     <span slot="footer" class="dialog-footer">
-      <el-button @click="handleClose">取 消</el-button>
-      <el-button type="primary" @click="handleOk">确 定</el-button>
+      <el-button :size="elementSize" @click="handleClose">取 消</el-button>
+      <el-button :size="elementSize" type="primary" @click="handleOk"
+        >确 定</el-button
+      >
     </span>
   </el-dialog>
 </template>
@@ -104,7 +108,7 @@ export default {
     },
     elementSize: {
       type: String,
-      default: "small",
+      default: "mini",
     },
     breadcrumbFontSize: {
       type: String,
@@ -116,7 +120,7 @@ export default {
     },
     width: {
       type: Number,
-      default: 60,
+      default: 50,
     },
     serachPlaceHolder: {
       type: String,
@@ -202,7 +206,7 @@ export default {
     },
     /**
      *
-     *  Custom Methods END
+     ***********************************************  Custom Methods END **********************************************
      *
      * */
 
@@ -210,12 +214,13 @@ export default {
       let label = e === "dept" ? "title" : e === "role" ? "name" : "realname";
       this.setFilterTargetField(label); // set label
       this.tree.nodes = this.tree.data[e].src; // set current tree nodes
-      this.setCheckedNodes(this.tree.data[e].checkedlist); //回显当前tree 选中状态
-      this.$forceUpdate();
+      this.$nextTick(() => {
+        this.setCheckedNodes(this.tree.data[e].checkedlist); //回显当前tree 选中状态
+      });
     },
     /**
      *
-     * Radio Component Methods END
+     *********************************************** Radio Component Methods END **********************************************
      *
      * */
 
@@ -239,7 +244,7 @@ export default {
       tag.taglist = nodeStatus.checkedNodes; //更新taglist
     },
     setCheckedNodes(arr) {
-      debugger;
+      // debugger;
       this.$refs.tree.setCheckedNodes(arr);
 
       // this.tree.defaultExpandedKeys = arr.map((it) => {
@@ -252,16 +257,16 @@ export default {
     removeCheckedNode(targetTag) {
       /** 删除某个节点时有一些规则：*/
       /** 1.如果删除父节点，则删除该节点下的所有子节点 */
-      if (!targetTag.item.isLeaf) {
+      if (!targetTag.isLeaf) {
         let currentNodes = this.getCheckedNodes(); //获取当前所有checked节点
-        let index = currentNodes.findIndex((it) => it.id === targetTag.item.id); //先找到当前节点，并删除
+        let index = currentNodes.findIndex((it) => it.id === targetTag.id); //先找到当前节点，并删除
         index != -1 && currentNodes.splice(index, 1);
-        targetTag.item.children.forEach((subitem) => {
+        targetTag.children.forEach((subitem) => {
           // 对于每个子节点， 找到其在currentNode 中的位置，并删除
           let index = currentNodes.findIndex((it) => it.id === subitem.id); //找到当前节点，并删除
           index != -1 && currentNodes.splice(index, 1);
           // 删除对应的tags
-          let tagIndex = this.tags.findIndex((it) => it.item.id === subitem.id);
+          let tagIndex = this.tags.findIndex((it) => it.id === subitem.id);
           tagIndex != -1 && this.tags.splice(tagIndex, 1);
         });
 
@@ -285,25 +290,27 @@ export default {
 
     /**
      *
-     * Tree Component Methods END
+     *********************************************** Tree Component Methods END **********************************************
      *
      * */
 
     handleTagClose(targetTag) {
-      let index = this.tags.findIndex((it) => it.item.id === targetTag.item.id);
-      index != -1 && this.tags.splice(index, 1); // 删除当前tag
+      let tagObj = this.tags.find((it) => it.type === this.radio);
+      // prettier-ignore
+      let index = tagObj.taglist.findIndex((it) => it.id === targetTag.id);
+      index != -1 && tagObj.taglist.splice(index, 1); // 删除当前tag
       this.removeCheckedNode(targetTag);
     },
 
     /**
      *
-     * Tag Components Methods END
+     *********************************************** Tag Components Methods END **********************************************
      *
      * */
 
     /**
      *
-     * utils function
+     *********************************************** utils function **********************************************
      *
      * */
     omit(str) {
@@ -317,12 +324,32 @@ export default {
 };
 </script>
 <style scoped>
+>>> .el-dialog__header {
+  padding: 10px;
+  padding-bottom: 0;
+}
+>>> .el-dialog__headerbtn {
+  top: 10px;
+  right: 10px;
+}
 >>> .el-dialog__footer {
   padding: 10px;
+  padding-top: 0;
 }
 >>> .el-dialog__body {
   padding: 10px;
-  height: "auto";
+}
+>>> .el-dialog__body ::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  overflow: auto;
+  float: left;
+  margin: 0 10px;
+  border-radius: 5px;
+}
+>>> .el-dialog__body ::-webkit-scrollbar-thumb {
+  background: #c7c7c7;
+  border-radius: 5px;
 }
 .org-container {
   width: 100%;
